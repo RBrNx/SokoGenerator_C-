@@ -1,0 +1,9 @@
+c:\users\watsonco\documents\visual studio 2015\Projects\SokoGen\SokoGen\bin\Debug\SokoGen.exe.config
+C:\Users\watsonco\Documents\Visual Studio 2015\Projects\SokoGen\SokoGen\bin\Debug\SokoGen.exe
+C:\Users\watsonco\Documents\Visual Studio 2015\Projects\SokoGen\SokoGen\bin\Debug\SokoGen.pdb
+C:\Users\watsonco\Documents\Visual Studio 2015\Projects\SokoGen\SokoGen\obj\Debug\SokoGen.Properties.Resources.resources
+C:\Users\watsonco\Documents\Visual Studio 2015\Projects\SokoGen\SokoGen\obj\Debug\SokoGen.csproj.GenerateResource.Cache
+C:\Users\watsonco\Documents\Visual Studio 2015\Projects\SokoGen\SokoGen\obj\Debug\SokoGen.exe
+C:\Users\watsonco\Documents\Visual Studio 2015\Projects\SokoGen\SokoGen\obj\Debug\SokoGen.pdb
+C:\Users\watsonco\Documents\Visual Studio 2015\Projects\SokoGen\SokoGen\obj\Debug\SokoGen.mainForm.resources
+C:\Users\watsonco\Documents\Visual Studio 2015\Projects\SokoGen\SokoGen\obj\Debug\SokoGen.csprojResolveAssemblyReference.cache
