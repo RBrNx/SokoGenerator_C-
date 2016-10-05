@@ -51,6 +51,7 @@
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.pbox_CurrLevel = new System.Windows.Forms.PictureBox();
             this.label_processInfo = new System.Windows.Forms.Label();
+            this.checkBox_autoSeed = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_CurrLevel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +78,8 @@
             // 
             this.textbox_GenSeed.Location = new System.Drawing.Point(523, 31);
             this.textbox_GenSeed.Name = "textbox_GenSeed";
-            this.textbox_GenSeed.Size = new System.Drawing.Size(187, 20);
+            this.textbox_GenSeed.ReadOnly = true;
+            this.textbox_GenSeed.Size = new System.Drawing.Size(89, 20);
             this.textbox_GenSeed.TabIndex = 2;
             // 
             // combo_NumLevels
@@ -314,11 +316,25 @@
             this.label_processInfo.TabIndex = 23;
             this.label_processInfo.Text = "Waiting on User...";
             // 
+            // checkBox_autoSeed
+            // 
+            this.checkBox_autoSeed.AutoSize = true;
+            this.checkBox_autoSeed.Checked = true;
+            this.checkBox_autoSeed.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_autoSeed.Location = new System.Drawing.Point(622, 31);
+            this.checkBox_autoSeed.Name = "checkBox_autoSeed";
+            this.checkBox_autoSeed.Size = new System.Drawing.Size(76, 17);
+            this.checkBox_autoSeed.TabIndex = 24;
+            this.checkBox_autoSeed.Text = "Auto Seed";
+            this.checkBox_autoSeed.UseVisualStyleBackColor = true;
+            this.checkBox_autoSeed.CheckedChanged += new System.EventHandler(this.checkBox_autoSeed_CheckedChanged);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 347);
+            this.Controls.Add(this.checkBox_autoSeed);
             this.Controls.Add(this.label_processInfo);
             this.Controls.Add(this.pbox_CurrLevel);
             this.Controls.Add(this.label_CurrGenTime);
@@ -353,7 +369,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox listbox_LevelSet;
-        private System.Windows.Forms.TextBox textbox_GenSeed;
         private System.Windows.Forms.ComboBox combo_NumLevels;
         private System.Windows.Forms.ComboBox combo_RoomHeight;
         private System.Windows.Forms.ComboBox combo_NumBoxes;
@@ -375,6 +390,8 @@
         private System.Windows.Forms.PictureBox pbox_CurrLevel;
         private System.Windows.Forms.Label label_CurrGenTime;
         private System.Windows.Forms.Label label_processInfo;
+        private System.Windows.Forms.CheckBox checkBox_autoSeed;
+        private System.Windows.Forms.TextBox textbox_GenSeed;
     }
 }
 

@@ -99,7 +99,15 @@ namespace SokoGen
                 timer.Start();
                 startTime = DateTime.Now;
 
-                textbox_GenSeed.Text = Generator.generateSeed().ToString();
+                if(checkBox_autoSeed.Checked)
+                {
+                    textbox_GenSeed.Text = Generator.generateSeed().ToString();
+                    Generator.genSeed = Int32.Parse(textbox_GenSeed.Text);
+                }
+                else
+                {
+                    Generator.genSeed = Int32.Parse(textbox_GenSeed.Text);
+                }               
                 
                 backgroundWorker.RunWorkerAsync();
 
@@ -271,6 +279,11 @@ namespace SokoGen
                 DisplayLevel(level);
             }
 
+        }
+
+        private void checkBox_autoSeed_CheckedChanged(object sender, EventArgs e)
+        {
+            textbox_GenSeed.ReadOnly = !textbox_GenSeed.ReadOnly;
         }
     }
 

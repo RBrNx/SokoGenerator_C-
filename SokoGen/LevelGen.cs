@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Timers;
 using System.ComponentModel;
 using System.Collections.Generic;
@@ -21,6 +22,14 @@ namespace SokoGen
             difficulty = 0;
             generationTime = TimeSpan.MinValue;
         }
+
+        public Level(Level level)
+        {
+            grid = level.grid.Select(x => x.ToList()).ToList(); //Stack Overflow said so
+            solution = level.solution;
+            difficulty = level.difficulty;
+            generationTime = level.generationTime;
+        }
     }
 
     public class LevelGen
@@ -34,8 +43,25 @@ namespace SokoGen
         DateTime startTime;
         TimeSpan timeElapsed;
 
+        struct coordinate
+        {
+            public int column, row;
+
+            public coordinate(int column, int row)
+            {
+                this.column = column;
+                this.row = row;
+            }
+        }
+
         char WALL = '#';
         char FLOOR = ' ';
+        char GOAL = '.';
+        char BOX = '$';
+        char BOXONGOAL = '*';
+        char PLAYER = '@';
+        char PONGOAL = '+';
+        char DEADFIELD = 'x';
         char PATTERN_EDGE = '-';
 
         public int noOfBoxes { get; set; }
@@ -44,6 +70,7 @@ namespace SokoGen
         public int roomWidth { get; set; }
         public int difficulty { get; set; }
         public float timeLimit { get; set; }
+        public int genSeed { get; set; }
 
         public LevelGen(mainForm form, BackgroundWorker worker, System.Windows.Forms.Timer timer)
         {
@@ -98,66 +125,14 @@ namespace SokoGen
             }
         }
 
-        private static string CalculatePi(int digits)
-        {
-            digits++;
-
-            uint[] x = new uint[digits * 10 / 3 + 2];
-            uint[] r = new uint[digits * 10 / 3 + 2];
-
-            uint[] pi = new uint[digits];
-
-            for (int j = 0; j < x.Length; j++)
-                x[j] = 20;
-
-            for (int i = 0; i < digits; i++)
-            {
-                uint carry = 0;
-                for (int j = 0; j < x.Length; j++)
-                {
-                    uint num = (uint)(x.Length - j - 1);
-                    uint dem = num * 2 + 1;
-
-                    x[j] += carry;
-
-                    uint q = x[j] / dem;
-                    r[j] = x[j] % dem;
-
-                    carry = q * num;
-                }
-
-
-                pi[i] = (x[x.Length - 1] / 10);
-
-
-                r[x.Length - 1] = x[x.Length - 1] % 10; ;
-
-                for (int j = 0; j < x.Length; j++)
-                    x[j] = r[j] * 10;
-            }
-
-            var result = "";
-
-            uint c = 0;
-
-            for (int i = pi.Length - 1; i >= 0; i--)
-            {
-                pi[i] += c;
-                c = pi[i] / 10;
-
-                result = (pi[i] % 10).ToString() + result;
-            }
-
-            return result;
-        }
-
         public List<Level> startGeneration()
         {
-            randGen = new Random(generateSeed());
+            startTime = DateTime.Now;
+            randGen = new Random(genSeed);
             List<Level> levelSet = new List<Level>();
 
             int levels;
-            if(noOfLevels == 0) { levels = randomNumber(ref randGen, 1, 20); } else { levels = noOfLevels; }
+            if(noOfLevels == 0) { levels = randomNumber(1, 20); } else { levels = noOfLevels; }
 
             for (int i = 0; i < levels; i++)
             {
@@ -167,23 +142,12 @@ namespace SokoGen
                 if (worker.CancellationPending)
                 {
                     timeoutClock.Stop();
+                    worker.ReportProgress(100, "Cancelled: Generated " + i + " Levels");
                     return levelSet;
                 }
             }
 
             worker.ReportProgress(100, "Generated " + levels + " Levels");
-
-            /*for(int j = 0; j < 10000; j++)
-            {
-                CalculatePi(j);
-                double percentage = ((j + 1) * 100) / 10000;
-                worker.ReportProgress((int)percentage);
-                if (worker.CancellationPending)
-                {
-                    return levelSet;
-                }
-                Console.WriteLine(percentage);
-            }*/
 
             return levelSet;
         }
@@ -193,7 +157,7 @@ namespace SokoGen
             bool generationSuccessful = false;
             Level newLevel = new Level();
             float percentage;
-            int indProcesses = 2;
+            int indProcesses = 4;
             int totalProcesses = totalLevels * (indProcesses + 1);
 
             while (!generationSuccessful)
@@ -201,24 +165,30 @@ namespace SokoGen
                 newLevel = new Level();
 
                 calculateProperties(ref noOfBoxes, ref difficulty, ref roomHeight, ref roomWidth);
-                //System.Threading.Thread.Sleep(100);
 
                 percentage = (((levelNum * indProcesses)) * 100) / totalProcesses;
                 worker.ReportProgress((int)percentage, "Init Level " + levelNum);
                 
                 initLevel(ref newLevel, roomHeight, roomWidth);
-                //System.Threading.Thread.Sleep(100);
 
                 percentage = (((levelNum * indProcesses) + 1) * 100) / totalProcesses;
                 worker.ReportProgress((int)percentage, "Placing Patterns in Level " + levelNum);
 
                 placePatterns(ref newLevel, roomHeight, roomWidth);
-                //System.Threading.Thread.Sleep(100);
 
-                generationSuccessful = true;
+                percentage = (((levelNum * indProcesses) + 2) * 100) / totalProcesses;
+                worker.ReportProgress((int)percentage, "Checking Connectivity in Level " + levelNum);
+
+                generationSuccessful = checkConnectivity(ref newLevel, roomHeight, roomWidth, noOfBoxes);
+
+                percentage = (((levelNum * indProcesses) + 3) * 100) / totalProcesses;
+                worker.ReportProgress((int)percentage, "Placing Goals and Boxes in Level " + levelNum);
+
+                if (generationSuccessful) generationSuccessful = placeGoalsAndBoxes(ref newLevel, roomHeight, roomWidth, noOfBoxes);
+                //if (generationSuccessful) generationSuccessful = placeGoalsPlayer(ref newLevel, roomHeight, roomWidth);
             }
 
-            percentage = (((levelNum * indProcesses) + 2) * 100) / totalProcesses;
+            percentage = (((levelNum * indProcesses) + 4) * 100) / totalProcesses;
             worker.ReportProgress((int)percentage, "Level " + levelNum + " Generated");
 
             return newLevel;
@@ -226,13 +196,13 @@ namespace SokoGen
 
         public void calculateProperties(ref int noOfBoxes, ref int difficulty, ref int roomHeight, ref int roomWidth)
         {
-            if (noOfBoxes == 0) { noOfBoxes = randomNumber(ref randGen, 3, 6); }
-            if (roomHeight == 0) { roomHeight = randomNumber(ref randGen, 3, 15, 3); }
-            if (difficulty == 0) { difficulty = randomNumber(ref randGen, 1, 5); }
+            if (noOfBoxes == 0) { noOfBoxes = randomNumber(3, 6); }
+            if (roomHeight == 0) { roomHeight = randomNumber(3, 15, 3); }
+            if (difficulty == 0) { difficulty = randomNumber(1, 5); }
             if (roomWidth == 0)
             {
-                if (roomHeight == 3) { roomWidth = randomNumber(ref randGen, 6, 15, 3); }
-                else { roomWidth = randomNumber(ref randGen, 3, 15, 3); }
+                if (roomHeight == 3) { roomWidth = randomNumber(6, 15, 3); }
+                else { roomWidth = randomNumber(3, 15, 3); }
             }
         }
 
@@ -277,9 +247,9 @@ namespace SokoGen
                             tempLevel = level;
                             patternPlacedCount = 0;
 
-                            int rand = randomNumber(ref randGen, 0, patterns.Count - 1);
-                            Level chosenPattern = patterns[rand];
-                            rotatePattern(ref chosenPattern, randomNumber(ref randGen, 0, 3));
+                            int rand = randomNumber(0, patterns.Count - 1);
+                            Level chosenPattern = new Level(patterns[rand]);
+                            chosenPattern = rotatePattern(chosenPattern, randomNumber(0, 3));
 
                             for(int pY = 0; pY < chosenPattern.grid.Count; pY++)
                             {
@@ -323,7 +293,7 @@ namespace SokoGen
             }
         }
 
-        public void rotatePattern(ref Level pattern, int rotation)
+        public Level rotatePattern(Level pattern, int rotation)
         {
             Level tempPattern = pattern;
 
@@ -353,7 +323,198 @@ namespace SokoGen
                     break;
             }
 
-            pattern = tempPattern;
+            return tempPattern;
+        }
+
+        public bool checkConnectivity(ref Level level, int roomHeight, int roomWidth, int numBoxes)
+        {
+            List<List<int>> tempGrid = new List<List<int>>();
+            bool floorFound = false;
+            int wallCount = 0;
+            int floorCount = 0;
+
+            for(int column = 0; column < roomHeight + 2; column++)
+            {
+                List<int> tempRow = new List<int>();
+
+                for (int row = 0; row < roomWidth + 2; row++)
+                {
+                    if (level.grid[column][row] == FLOOR)
+                    {
+                        tempRow.Add(0);
+                    }
+                    else
+                    {
+                        tempRow.Add(1);
+                    }
+                }
+                tempGrid.Add(tempRow);
+            }
+
+            for(int column = 0; column < roomHeight + 2; column++)
+            {
+                for(int row = 0; row < roomWidth + 2; row++)
+                {
+                    if (tempGrid[column][row] == 0 && floorFound == false)
+                    {
+                        floorFound = true;
+                        floodFill(ref tempGrid, column, row, roomWidth + 2, roomHeight + 2);
+                    }
+                }
+            }
+
+            for(int column = 0; column < roomHeight + 2; column++)
+            {
+                for(int row = 0; row < roomWidth + 2; row++)
+                {
+                    if (tempGrid[column][row] == 0) { return false; }
+                    else if (tempGrid[column][row] == 1)
+                    {
+                        wallCount++;
+                    }
+                    else if (tempGrid[column][row] == 2)
+                    {
+                        floorCount++;
+                    }
+
+                    if(wallCount == tempGrid.Count * tempGrid[column].Count()){ return false; }
+                }
+            }
+            if(floorCount <= numBoxes + numBoxes + 1 + 5)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public void floodFill(ref List<List<int>> grid, int column, int row, int roomWidth, int roomHeight)
+        {
+            coordinate coord = new coordinate(column, row);
+
+            Queue<coordinate> gridQueue = new Queue<coordinate>();
+
+            gridQueue.Enqueue(coord);
+
+            while(gridQueue.Count > 0)
+            {
+                coordinate node = gridQueue.Dequeue();
+
+                if(grid[node.column][node.row] == 0)
+                {
+                    grid[node.column][node.row] = 2;
+                    if (node.row > 0) if (grid[node.column][node.row-1] == 0) { gridQueue.Enqueue(new coordinate(node.column, node.row - 1)); }
+                    if (node.row < roomWidth) if (grid[node.column][node.row + 1] == 0) { gridQueue.Enqueue(new coordinate(node.column, node.row + 1)); }
+                    if (node.column > 0) if (grid[node.column-1][node.row] == 0) { gridQueue.Enqueue(new coordinate(node.column - 1, node.row)); }
+                    if (node.column < roomHeight) if (grid[node.column+1][node.row] == 0) { gridQueue.Enqueue(new coordinate(node.column + 1, node.row)); }
+                }
+            }
+        }
+
+        public bool placeGoalsAndBoxes(ref Level level, int roomHeight, int roomWidth, int numBoxes)
+        {
+            bool goalsPlaced = false, boxesPlaced = false;
+            int goalCount = 0, boxCount = 0;
+            int xCoord = 0, yCoord = 0;
+            Level deadFields = new Level();
+
+            while (!goalsPlaced)
+            {
+                xCoord = randomNumber(1, roomWidth);
+                yCoord = randomNumber(1, roomHeight);
+
+                if(level.grid[yCoord][xCoord] == FLOOR)
+                {
+                    level.grid[yCoord][xCoord] = GOAL;
+                    goalCount++;
+                }
+
+                if(goalCount == numBoxes)
+                {
+                    goalsPlaced = true;
+                }
+            }
+
+            deadFields = calcDeadFields(level);
+
+            while (!boxesPlaced)
+            {
+                xCoord = randomNumber(1, roomWidth);
+                yCoord = randomNumber(1, roomHeight);
+
+                if(deadFields.grid[yCoord][xCoord] == FLOOR)
+                {
+                    level.grid[yCoord][xCoord] = BOX;
+                    deadFields.grid[yCoord][xCoord] = BOX;
+                    boxCount++;
+                }
+                else if(level.grid[yCoord][xCoord] == GOAL)
+                {
+                    if(neighbourCount(level, yCoord, xCoord) < 2 && boxCount < numBoxes - 1)
+                    {
+                        level.grid[yCoord][xCoord] = BOXONGOAL;
+                        boxCount++;
+                    }
+                }
+
+                if(boxCount == numBoxes)
+                {
+                    boxesPlaced = true;
+                }
+            }
+
+            if(boxesPlaced && goalsPlaced)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public int neighbourCount(Level level, int yCoord, int xCoord)
+        {
+            int neighbourWalls = 0;
+
+            if(level.grid[yCoord - 1][xCoord] == WALL)
+            {
+                neighbourWalls++;
+            }
+            if (level.grid[yCoord + 1][xCoord] == WALL)
+            {
+                neighbourWalls++;
+            }
+            if (level.grid[yCoord][xCoord - 1] == WALL)
+            {
+                neighbourWalls++;
+            }
+            if (level.grid[yCoord][xCoord + 1] == WALL)
+            {
+                neighbourWalls++;
+            }
+
+            return neighbourWalls;
+        }
+
+        public Level calcDeadFields(Level level)
+        {
+            Level deadFields = new Level(level);
+
+            for(int y = 0; y < deadFields.grid.Count(); y++)
+            {
+                for(int x = 0; x < deadFields.grid[y].Count(); x++)
+                {
+
+                    if(deadFields.grid[y][x] == FLOOR && neighbourCount(deadFields, y, x) > 1)
+                    {
+                        deadFields.grid[y][x] = DEADFIELD;
+                    }
+
+                }
+            }
+
+            return deadFields;
         }
 
         public int generateSeed()
@@ -363,7 +524,7 @@ namespace SokoGen
             return BitConverter.ToInt32(cryptoRes, 0);
         }
 
-        public int randomNumber(ref Random randGen, int min, int max, int divisor = 1)
+        public int randomNumber(int min, int max, int divisor = 1)
         {
             int num = randGen.Next(min, max + 1);
 
