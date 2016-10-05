@@ -55,6 +55,7 @@ namespace SokoGen
             int index = listbox_LevelSet.IndexFromPoint(e.Location);
             if(index != ListBox.NoMatches)
             {
+                listbox_LevelSet.SelectedIndex = index;
                 rightClickMenu.Show(Cursor.Position);
                 rightClickMenu.Visible = true;
             }
@@ -71,7 +72,20 @@ namespace SokoGen
 
         private void DeleteItem_Click(object sender, EventArgs e)
         {
-            listbox_LevelSet.Items.RemoveAt(listbox_LevelSet.SelectedIndex);
+            int selected = listbox_LevelSet.SelectedIndex;
+            levelSet.RemoveAt(selected);
+
+            if(levelSet.Count > 0)
+            {
+                ListLevels(levelSet);
+                if(selected > 0) listbox_LevelSet.SelectedIndex = selected - 1;
+                else { listbox_LevelSet.SelectedIndex = listbox_LevelSet.TopIndex; }
+            }
+            else
+            {
+                listbox_LevelSet.Items.Clear();
+                listbox_LevelSet.ClearSelected();
+            }
         }
 
         private void button_GenLevels_Click(object sender, EventArgs e)
@@ -158,6 +172,7 @@ namespace SokoGen
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
+            label_processInfo.Text = e.ProgressPercentage + "% - " + (string)e.UserState;
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -201,16 +216,13 @@ namespace SokoGen
 
         private void ListLevels(List<Level> levelSet)
         {
-            for(int i = listbox_LevelSet.Items.Count; i > 0; i--)
-            {
-                listbox_LevelSet.Items.RemoveAt(i);
-            }
+            listbox_LevelSet.Items.Clear();
 
             for(int i = 0; i < levelSet.Count; i++)
             {
                 TimeSpan genTime = new TimeSpan(0, 2, 45);
                 string diff = "Easy";
-                listbox_LevelSet.Items.Add("Level " + i + " - " + genTime.ToString(@"hh\:mm\:ss") + " - " + diff);
+                listbox_LevelSet.Items.Add("Level " + (i+1) + " - " + genTime.ToString(@"hh\:mm\:ss") + " - " + diff);
             }
         }
 
@@ -253,8 +265,12 @@ namespace SokoGen
 
         private void listbox_LevelSet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Level level = levelSet[listbox_LevelSet.SelectedIndex];
-            DisplayLevel(level);
+            if(listbox_LevelSet.SelectedIndex != -1)
+            {
+                Level level = levelSet[listbox_LevelSet.SelectedIndex];
+                DisplayLevel(level);
+            }
+
         }
     }
 

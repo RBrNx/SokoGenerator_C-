@@ -58,7 +58,7 @@
             // 
             this.label_CurrGenTime.AutoEllipsis = true;
             this.label_CurrGenTime.AutoSize = true;
-            this.label_CurrGenTime.Location = new System.Drawing.Point(530, 212);
+            this.label_CurrGenTime.Location = new System.Drawing.Point(520, 213);
             this.label_CurrGenTime.Name = "label_CurrGenTime";
             this.label_CurrGenTime.Size = new System.Drawing.Size(173, 13);
             this.label_CurrGenTime.TabIndex = 21;
@@ -308,7 +308,7 @@
             // 
             this.label_processInfo.AutoEllipsis = true;
             this.label_processInfo.AutoSize = true;
-            this.label_processInfo.Location = new System.Drawing.Point(530, 249);
+            this.label_processInfo.Location = new System.Drawing.Point(520, 250);
             this.label_processInfo.Name = "label_processInfo";
             this.label_processInfo.Size = new System.Drawing.Size(92, 13);
             this.label_processInfo.TabIndex = 23;

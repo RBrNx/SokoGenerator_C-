@@ -161,11 +161,8 @@ namespace SokoGen
 
             for (int i = 0; i < levels; i++)
             {
-                Level level = generateLevel(noOfLevels, noOfBoxes, roomHeight, roomWidth, difficulty);
+                Level level = generateLevel(noOfLevels, noOfBoxes, roomHeight, roomWidth, difficulty, i, levels);
                 levelSet.Add(level);
-
-                float percentage = ((i + 1) * 100) / levels;
-                worker.ReportProgress((int)percentage);
 
                 if (worker.CancellationPending)
                 {
@@ -173,6 +170,8 @@ namespace SokoGen
                     return levelSet;
                 }
             }
+
+            worker.ReportProgress(100, "Generated " + levels + " Levels");
 
             /*for(int j = 0; j < 10000; j++)
             {
@@ -189,20 +188,38 @@ namespace SokoGen
             return levelSet;
         }
 
-        public Level generateLevel(int noOfLevels, int noOfBoxes, int roomHeight, int roomWidth, int difficulty)
+        public Level generateLevel(int noOfLevels, int noOfBoxes, int roomHeight, int roomWidth, int difficulty, int levelNum, int totalLevels)
         {
             bool generationSuccessful = false;
             Level newLevel = new Level();
+            float percentage;
+            int indProcesses = 2;
+            int totalProcesses = totalLevels * (indProcesses + 1);
 
             while (!generationSuccessful)
             {
                 newLevel = new Level();
 
                 calculateProperties(ref noOfBoxes, ref difficulty, ref roomHeight, ref roomWidth);
+                //System.Threading.Thread.Sleep(100);
+
+                percentage = (((levelNum * indProcesses)) * 100) / totalProcesses;
+                worker.ReportProgress((int)percentage, "Init Level " + levelNum);
+                
                 initLevel(ref newLevel, roomHeight, roomWidth);
+                //System.Threading.Thread.Sleep(100);
+
+                percentage = (((levelNum * indProcesses) + 1) * 100) / totalProcesses;
+                worker.ReportProgress((int)percentage, "Placing Patterns in Level " + levelNum);
+
                 placePatterns(ref newLevel, roomHeight, roomWidth);
+                //System.Threading.Thread.Sleep(100);
+
                 generationSuccessful = true;
             }
+
+            percentage = (((levelNum * indProcesses) + 2) * 100) / totalProcesses;
+            worker.ReportProgress((int)percentage, "Level " + levelNum + " Generated");
 
             return newLevel;
         }
