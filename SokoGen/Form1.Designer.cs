@@ -308,7 +308,7 @@
             this.label_processInfo.Name = "label_processInfo";
             this.label_processInfo.Size = new System.Drawing.Size(92, 13);
             this.label_processInfo.TabIndex = 23;
-            this.label_processInfo.Text = "Waiting on User...";
+            this.label_processInfo.Text = "Waiting for User...";
             // 
             // checkBox_autoSeed
             // 

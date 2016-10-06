@@ -53,6 +53,16 @@ namespace SokoGen
             label_CurrGenTime.Text = "Current Generation Time - 00:00:00";
             textbox_GenSeed.Text = "";
 
+            textbox_GenSeed.TextChanged += (senders, args) =>
+            {
+                if(textbox_GenSeed.BackColor == Color.IndianRed)
+                {
+                    textbox_GenSeed.BackColor = default(Color);
+                    label_processInfo.ForeColor = default(Color);
+                    label_processInfo.Text = "Waiting for User...";
+                }          
+            };
+
             ToolStripMenuItem deleteItem = new ToolStripMenuItem { Text = "Delete Level" };
             deleteItem.Click += DeleteItem_Click;
             ToolStripMenuItem regenLevel = new ToolStripMenuItem { Text = "Regenerate Level" };
@@ -111,12 +121,31 @@ namespace SokoGen
         {             
             if (!backgroundWorker.IsBusy)
             {
+                bool valid = false;
                 progressBar.Value = 0;
                 elapsedTime = new TimeSpan(0, 0, 0);
                 label_CurrGenTime.Text = "Current Generation Time - " + elapsedTime.ToString();
 
-                timer.Start();
-                startTime = DateTime.Now;
+                if(checkBox_autoSeed.Checked)
+                {
+                    textbox_GenSeed.Text = Generator.generateSeed().ToString();
+                    Generator.genSeed = Int32.Parse(textbox_GenSeed.Text);
+                    valid = true;
+                }
+                else
+                {
+                    int seed;
+                    valid = Int32.TryParse(textbox_GenSeed.Text, out seed);
+                    if (valid) { Generator.genSeed = seed; }
+                }
+
+                if (!valid)
+                {
+                    textbox_GenSeed.BackColor = Color.IndianRed;
+                    label_processInfo.Text = "Please Enter a Valid Numerical Seed";
+                    label_processInfo.ForeColor = Color.Red;
+                    return;
+                }
 
                 comboTimeLimit.Enabled = false;
                 combo_Difficulty.Enabled = false;
@@ -124,17 +153,10 @@ namespace SokoGen
                 combo_NumLevels.Enabled = false;
                 combo_RoomHeight.Enabled = false;
                 combo_RoomWidth.Enabled = false;
-                if(textbox_GenSeed.ReadOnly == false) { textbox_GenSeed.ReadOnly = true; }
+                if (textbox_GenSeed.ReadOnly == false) { textbox_GenSeed.ReadOnly = true; }
 
-                if(checkBox_autoSeed.Checked)
-                {
-                    textbox_GenSeed.Text = Generator.generateSeed().ToString();
-                    Generator.genSeed = Int32.Parse(textbox_GenSeed.Text);
-                }
-                else
-                {
-                    Generator.genSeed = Int32.Parse(textbox_GenSeed.Text);
-                }
+                timer.Start();
+                startTime = DateTime.Now;
 
                 backgroundWorker.RunWorkerAsync();
 
