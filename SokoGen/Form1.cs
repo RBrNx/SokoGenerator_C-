@@ -16,6 +16,8 @@ namespace SokoGen
         DateTime startTime;
         TimeSpan elapsedTime;
         ContextMenuStrip rightClickMenu;
+        List<float> timeLimits = new List<float>();
+        bool genSeedEnabled = false;
 
         public mainForm()
         {
@@ -30,13 +32,26 @@ namespace SokoGen
 
         private void InitializeForms()
         {
+            Dictionary<string, float> timeLimits = new Dictionary<string, float>();
+            timeLimits.Add("No Limit", 0);
+            timeLimits.Add("30 Secs", 0.5f);
+            timeLimits.Add("1 Min", 1);
+            timeLimits.Add("2 Min", 1);
+            timeLimits.Add("5 Min", 1);
+            timeLimits.Add("10 Min", 10);
+
+            comboTimeLimit.DataSource = new BindingSource(timeLimits, null);
+            comboTimeLimit.DisplayMember = "Key";
+            comboTimeLimit.ValueMember = "Value";
+
             combo_NumLevels.SelectedIndex = 0;
             combo_NumBoxes.SelectedIndex = 0;
             combo_RoomHeight.SelectedIndex = 0;
             combo_RoomWidth.SelectedIndex = 0;
             combo_Difficulty.SelectedIndex = 0;
-            comboTimeLimit.SelectedIndex = 0;
+            comboTimeLimit.SelectedIndex = 1;
             label_CurrGenTime.Text = "Current Generation Time - 00:00:00";
+            textbox_GenSeed.Text = "";
 
             ToolStripMenuItem deleteItem = new ToolStripMenuItem { Text = "Delete Level" };
             deleteItem.Click += DeleteItem_Click;
@@ -72,14 +87,18 @@ namespace SokoGen
 
         private void DeleteItem_Click(object sender, EventArgs e)
         {
-            int selected = listbox_LevelSet.SelectedIndex;
-            levelSet.RemoveAt(selected);
+            for(int i = listbox_LevelSet.Items.Count-1; i >= 0; i--)
+            {
+                if(listbox_LevelSet.GetSelected(i) == true)
+                {
+                    levelSet.RemoveAt(i);
+                }
+            }
 
-            if(levelSet.Count > 0)
+            if (levelSet.Count > 0)
             {
                 ListLevels(levelSet);
-                if(selected > 0) listbox_LevelSet.SelectedIndex = selected - 1;
-                else { listbox_LevelSet.SelectedIndex = listbox_LevelSet.TopIndex; }
+                listbox_LevelSet.SelectedIndex = listbox_LevelSet.TopIndex;
             }
             else
             {
@@ -99,6 +118,14 @@ namespace SokoGen
                 timer.Start();
                 startTime = DateTime.Now;
 
+                comboTimeLimit.Enabled = false;
+                combo_Difficulty.Enabled = false;
+                combo_NumBoxes.Enabled = false;
+                combo_NumLevels.Enabled = false;
+                combo_RoomHeight.Enabled = false;
+                combo_RoomWidth.Enabled = false;
+                if(textbox_GenSeed.ReadOnly == false) { textbox_GenSeed.ReadOnly = true; }
+
                 if(checkBox_autoSeed.Checked)
                 {
                     textbox_GenSeed.Text = Generator.generateSeed().ToString();
@@ -107,8 +134,8 @@ namespace SokoGen
                 else
                 {
                     Generator.genSeed = Int32.Parse(textbox_GenSeed.Text);
-                }               
-                
+                }
+
                 backgroundWorker.RunWorkerAsync();
 
                 button_GenLevels.Text = "Cancel Generation";
@@ -124,59 +151,6 @@ namespace SokoGen
             levelSet = Generator.startGeneration();
         }
 
-        private static string CalculatePi(int digits)
-        {
-            digits++;
-
-            uint[] x = new uint[digits * 10 / 3 + 2];
-            uint[] r = new uint[digits * 10 / 3 + 2];
-
-            uint[] pi = new uint[digits];
-
-            for (int j = 0; j < x.Length; j++)
-                x[j] = 20;
-
-            for (int i = 0; i < digits; i++)
-            {
-                uint carry = 0;
-                for (int j = 0; j < x.Length; j++)
-                {
-                    uint num = (uint)(x.Length - j - 1);
-                    uint dem = num * 2 + 1;
-
-                    x[j] += carry;
-
-                    uint q = x[j] / dem;
-                    r[j] = x[j] % dem;
-
-                    carry = q * num;
-                }
-
-
-                pi[i] = (x[x.Length - 1] / 10);
-
-
-                r[x.Length - 1] = x[x.Length - 1] % 10; ;
-
-                for (int j = 0; j < x.Length; j++)
-                    x[j] = r[j] * 10;
-            }
-
-            var result = "";
-
-            uint c = 0;
-
-            for (int i = pi.Length - 1; i >= 0; i--)
-            {
-                pi[i] += c;
-                c = pi[i] / 10;
-
-                result = (pi[i] % 10).ToString() + result;
-            }
-
-            return result;
-        }
-
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
@@ -187,18 +161,60 @@ namespace SokoGen
         {
             timer.Stop();
             button_GenLevels.Text = "Begin Generation!";
+
+            comboTimeLimit.Enabled = true;
+            combo_Difficulty.Enabled = true;
+            combo_NumBoxes.Enabled = true;
+            combo_NumLevels.Enabled = true;
+            combo_RoomHeight.Enabled = true;
+            combo_RoomWidth.Enabled = true;
+            if (genSeedEnabled == true) { textbox_GenSeed.ReadOnly = false; }
+
             ListLevels(levelSet);
             DisplayLevel(levelSet[0]);
         }
 
         private void LoadImages()
         {
-            sprites.Add('$', Image.FromFile("textures/BOX.png"));
-            sprites.Add('*', Image.FromFile("textures/BOX_SHIPPED.png"));
-            sprites.Add(' ', Image.FromFile("textures/FLOOR.png"));
-            sprites.Add('.', Image.FromFile("textures/GOAL.png"));
-            sprites.Add('@', Image.FromFile("textures/MAN.png"));
-            sprites.Add('#', Image.FromFile("textures/WALL.png"));
+            Image box = Image.FromFile("textures/BOX.png");
+            Image boxShipped = Image.FromFile("textures/BOX_SHIPPED.png");
+            Image goal = Image.FromFile("textures/GOAL.png");
+            Image player = Image.FromFile("textures/MAN.png");
+            Image floor = Image.FromFile("textures/FLOOR.png");
+            Image wall = Image.FromFile("textures/WALL.png");
+
+            Bitmap boxOnGoal = new Bitmap(64, 64);
+            Graphics g = Graphics.FromImage(boxOnGoal);
+            g.DrawImage(goal, new Point(0, 0));
+            g.DrawImage(boxShipped, new Point(0, 0));
+            g.Dispose();
+
+            Bitmap boxOnFloor = new Bitmap(64, 64);
+            g = Graphics.FromImage(boxOnFloor);
+            g.DrawImage(floor, new Point(0, 0));
+            g.DrawImage(box, new Point(0, 0));
+            g.Dispose();
+
+            Bitmap playerOnGoal = new Bitmap(64, 64);
+            g = Graphics.FromImage(playerOnGoal);
+            g.DrawImage(goal, new Point(0, 0));
+            g.DrawImage(player, new Point(0, 0));
+            g.Dispose();
+
+            Bitmap playerOnFloor = new Bitmap(64, 64);
+            g = Graphics.FromImage(playerOnFloor);
+            g.DrawImage(floor, new Point(0, 0));
+            g.DrawImage(player, new Point(0, 0));
+            g.Dispose();
+
+
+            sprites.Add('$', boxOnFloor);
+            sprites.Add('*', boxOnGoal);
+            sprites.Add(' ', floor);
+            sprites.Add('.', goal);
+            sprites.Add('@', playerOnFloor);
+            sprites.Add('+', playerOnGoal);
+            sprites.Add('#', wall);
         }
 
         private void DisplayLevel(Level level)
@@ -263,7 +279,7 @@ namespace SokoGen
 
         private void comboTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Generator.timeLimit = comboTimeLimit.SelectedIndex;
+            Generator.timeLimit = ((KeyValuePair<string, float>)comboTimeLimit.SelectedItem).Value;
         }
 
         private void combo_NumLevels_SelectedIndexChanged(object sender, EventArgs e)
@@ -284,6 +300,7 @@ namespace SokoGen
         private void checkBox_autoSeed_CheckedChanged(object sender, EventArgs e)
         {
             textbox_GenSeed.ReadOnly = !textbox_GenSeed.ReadOnly;
+            genSeedEnabled = !textbox_GenSeed.ReadOnly;
         }
     }
 

@@ -70,6 +70,7 @@
             this.listbox_LevelSet.FormattingEnabled = true;
             this.listbox_LevelSet.Location = new System.Drawing.Point(12, 31);
             this.listbox_LevelSet.Name = "listbox_LevelSet";
+            this.listbox_LevelSet.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listbox_LevelSet.Size = new System.Drawing.Size(205, 303);
             this.listbox_LevelSet.TabIndex = 0;
             this.listbox_LevelSet.SelectedIndexChanged += new System.EventHandler(this.listbox_LevelSet_SelectedIndexChanged);
@@ -260,13 +261,6 @@
             // comboTimeLimit
             // 
             this.comboTimeLimit.FormattingEnabled = true;
-            this.comboTimeLimit.Items.AddRange(new object[] {
-            "No Limit",
-            "30 Secs",
-            "1 Min",
-            "2 Min",
-            "5 Min",
-            "10 Min"});
             this.comboTimeLimit.Location = new System.Drawing.Point(622, 171);
             this.comboTimeLimit.Name = "comboTimeLimit";
             this.comboTimeLimit.Size = new System.Drawing.Size(88, 21);
