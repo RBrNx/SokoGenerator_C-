@@ -57,6 +57,8 @@
             // 
             // label_CurrGenTime
             // 
+            this.label_CurrGenTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_CurrGenTime.AutoEllipsis = true;
             this.label_CurrGenTime.AutoSize = true;
             this.label_CurrGenTime.Location = new System.Drawing.Point(520, 213);
@@ -67,6 +69,8 @@
             // 
             // listbox_LevelSet
             // 
+            this.listbox_LevelSet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listbox_LevelSet.FormattingEnabled = true;
             this.listbox_LevelSet.Location = new System.Drawing.Point(12, 31);
             this.listbox_LevelSet.Name = "listbox_LevelSet";
@@ -77,6 +81,8 @@
             // 
             // textbox_GenSeed
             // 
+            this.textbox_GenSeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textbox_GenSeed.Location = new System.Drawing.Point(523, 31);
             this.textbox_GenSeed.Name = "textbox_GenSeed";
             this.textbox_GenSeed.ReadOnly = true;
@@ -85,6 +91,8 @@
             // 
             // combo_NumLevels
             // 
+            this.combo_NumLevels.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.combo_NumLevels.FormattingEnabled = true;
             this.combo_NumLevels.Items.AddRange(new object[] {
             "Random",
@@ -116,6 +124,8 @@
             // 
             // combo_RoomHeight
             // 
+            this.combo_RoomHeight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.combo_RoomHeight.FormattingEnabled = true;
             this.combo_RoomHeight.Items.AddRange(new object[] {
             "Random",
@@ -132,6 +142,8 @@
             // 
             // combo_NumBoxes
             // 
+            this.combo_NumBoxes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.combo_NumBoxes.FormattingEnabled = true;
             this.combo_NumBoxes.Items.AddRange(new object[] {
             "Random",
@@ -147,6 +159,8 @@
             // 
             // combo_RoomWidth
             // 
+            this.combo_RoomWidth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.combo_RoomWidth.FormattingEnabled = true;
             this.combo_RoomWidth.Items.AddRange(new object[] {
             "Random",
@@ -163,6 +177,8 @@
             // 
             // combo_Difficulty
             // 
+            this.combo_Difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.combo_Difficulty.FormattingEnabled = true;
             this.combo_Difficulty.Items.AddRange(new object[] {
             "Random",
@@ -179,6 +195,8 @@
             // 
             // label_GenSeed
             // 
+            this.label_GenSeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_GenSeed.AutoSize = true;
             this.label_GenSeed.Location = new System.Drawing.Point(523, 16);
             this.label_GenSeed.Name = "label_GenSeed";
@@ -206,6 +224,8 @@
             // 
             // label_NumLevels
             // 
+            this.label_NumLevels.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_NumLevels.AutoSize = true;
             this.label_NumLevels.Location = new System.Drawing.Point(523, 62);
             this.label_NumLevels.Name = "label_NumLevels";
@@ -215,6 +235,8 @@
             // 
             // label_RoomHeight
             // 
+            this.label_RoomHeight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_RoomHeight.AutoSize = true;
             this.label_RoomHeight.Location = new System.Drawing.Point(619, 62);
             this.label_RoomHeight.Name = "label_RoomHeight";
@@ -224,6 +246,8 @@
             // 
             // label_NumBoxes
             // 
+            this.label_NumBoxes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_NumBoxes.AutoSize = true;
             this.label_NumBoxes.Location = new System.Drawing.Point(523, 109);
             this.label_NumBoxes.Name = "label_NumBoxes";
@@ -233,6 +257,8 @@
             // 
             // label_RoomWidth
             // 
+            this.label_RoomWidth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_RoomWidth.AutoSize = true;
             this.label_RoomWidth.Location = new System.Drawing.Point(619, 109);
             this.label_RoomWidth.Name = "label_RoomWidth";
@@ -242,6 +268,8 @@
             // 
             // label_Difficulty
             // 
+            this.label_Difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Difficulty.AutoSize = true;
             this.label_Difficulty.Location = new System.Drawing.Point(523, 156);
             this.label_Difficulty.Name = "label_Difficulty";
@@ -251,6 +279,8 @@
             // 
             // label_GenTimeLimit
             // 
+            this.label_GenTimeLimit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_GenTimeLimit.AutoSize = true;
             this.label_GenTimeLimit.Location = new System.Drawing.Point(619, 156);
             this.label_GenTimeLimit.Name = "label_GenTimeLimit";
@@ -260,6 +290,8 @@
             // 
             // comboTimeLimit
             // 
+            this.comboTimeLimit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboTimeLimit.FormattingEnabled = true;
             this.comboTimeLimit.Location = new System.Drawing.Point(622, 171);
             this.comboTimeLimit.Name = "comboTimeLimit";
@@ -269,6 +301,7 @@
             // 
             // progressBar
             // 
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.Location = new System.Drawing.Point(523, 270);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(187, 23);
@@ -276,6 +309,7 @@
             // 
             // button_GenLevels
             // 
+            this.button_GenLevels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_GenLevels.Location = new System.Drawing.Point(523, 306);
             this.button_GenLevels.Name = "button_GenLevels";
             this.button_GenLevels.Size = new System.Drawing.Size(187, 23);
@@ -294,6 +328,9 @@
             // 
             // pbox_CurrLevel
             // 
+            this.pbox_CurrLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbox_CurrLevel.Location = new System.Drawing.Point(241, 31);
             this.pbox_CurrLevel.Name = "pbox_CurrLevel";
             this.pbox_CurrLevel.Size = new System.Drawing.Size(262, 303);
@@ -302,6 +339,7 @@
             // 
             // label_processInfo
             // 
+            this.label_processInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_processInfo.AutoEllipsis = true;
             this.label_processInfo.AutoSize = true;
             this.label_processInfo.Location = new System.Drawing.Point(520, 250);
@@ -312,6 +350,8 @@
             // 
             // checkBox_autoSeed
             // 
+            this.checkBox_autoSeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox_autoSeed.AutoSize = true;
             this.checkBox_autoSeed.Checked = true;
             this.checkBox_autoSeed.CheckState = System.Windows.Forms.CheckState.Checked;
