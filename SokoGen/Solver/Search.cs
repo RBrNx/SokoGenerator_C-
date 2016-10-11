@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using Priority_Queue;
@@ -39,11 +40,13 @@ namespace SokoSolver
     {
         private static Heuristics h;
         Logger logger;
+        List<List<char>> grid;
 
-        public Search(Heuristics h)
+        public Search(Heuristics h, List<List<char>> tGrid)
         {
             Search.h = h;
-            logger = new Logger();            
+            logger = new Logger();
+            grid = tGrid.Select(x => x.ToList()).ToList();
         }
 
         public string GreedySearch(Problem p)
@@ -51,7 +54,7 @@ namespace SokoSolver
             int totalNode = 1;
             int redundant = 1;
             Node initial = new Node(p.initialState, null, 0, "", h);
-            HashSet<State> explored = new HashSet<State>();
+            List<State> explored = new List<State>();
             SimplePriorityQueue<Node> fringe = new SimplePriorityQueue<Node>();
             fringe.Enqueue(initial, 0);
 
@@ -128,7 +131,7 @@ namespace SokoSolver
                 return getSolution(node);
             }
 
-            HashSet<State> explored = new HashSet<State>();
+            List<State> explored = new List<State>();
             Stack<Node> fringe = new Stack<Node>();
             fringe.Push(node);
 
@@ -179,19 +182,59 @@ namespace SokoSolver
             }
             else
             {
-                while(n.parent != null)
+                TextWriter tw = new StreamWriter("sol.txt", false);
+                List<List<char>> tempGrid;
+                while (n.parent != null)
                 {
+                    tempGrid = grid.Select(x => x.ToList()).ToList();
+                    Print(tempGrid, n, tw);
                     result = n.move + " " + result;
-                    n = n.parent;
+                    n = n.parent;      
                 }
+                tw.WriteLine("Done");
+                tw.Close();
             }
 
             return result;
         }
 
+        private void Print(List<List<char>> temp, Node node, TextWriter tw)
+        {
+            for(int i = 0; i < node.state.boxes.Count; i++)
+            {
+                tw.Write("(" + node.state.boxes[i].col + ", " + node.state.boxes[i].row + ") ");
+                Coordinate c = node.state.boxes[i];
+                if(temp[c.row][c.col] == '.')
+                {
+                    temp[c.row][c.col] = '*';
+                }
+                else
+                {
+                    temp[c.row][c.col] = '$';
+                }
+                       
+            }
+            tw.WriteLine();
+
+            Coordinate p = node.state.player;
+            temp[p.row][p.col] = '@';
+
+            for(int y = 0; y < temp.Count; y++)
+            {
+                for(int x = 0; x < temp[y].Count; x++)
+                {
+                    tw.Write(temp[y][x]);
+                }
+                tw.WriteLine();
+            }
+            tw.WriteLine();
+            tw.WriteLine();
+
+        }
+
         private Node getChild(Problem p, Node n, string action)
         {
-            HashSet<Coordinate> boxes = new HashSet<Coordinate>(n.state.boxes);
+            List<Coordinate> boxes = new List<Coordinate>(n.state.boxes);
             //grid = level.grid.Select(x => x.ToList()).ToList(); //Stack Overflow said so
             //List<Coordinate> boxes = n.state.boxes;
             int row = n.state.player.row;
@@ -241,7 +284,7 @@ namespace SokoSolver
 
                     if (boxes.Contains(newPlayer))
                     {
-                        Coordinate newBox = new Coordinate(row, col + 1);
+                        Coordinate newBox = new Coordinate(row, col + 2);
                         boxes.Remove(newPlayer);
                         boxes.Add(newBox);
                     }

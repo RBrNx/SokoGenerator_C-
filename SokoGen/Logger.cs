@@ -44,14 +44,14 @@ namespace SokoSolver
         public void writeToLog(Node n, string beforeMessage, string afterMessage)
         {
             tw = new StreamWriter(logfilePath, true);
-            string nodeDetails = "Cost - " + n.cost + "\t Move - " + n.move + "\t PlayerPos - (" + n.state.player.col + ", " + n.state.player.row + ")";
-            /*string boxes = "\t\t Boxes [";
+            string nodeDetails = /*"Cost - " + n.cost + "\t Move - " + n.move + */"\t PlayerPos - (" + n.state.player.col + ", " + n.state.player.row + ")";
+            string boxes = "\t\t Boxes [";
             for(int i = 0; i < n.state.boxes.Count; i++)
             {
                 boxes += "(" + n.state.boxes[i].col + ", " + n.state.boxes[i].row + "), ";
             }
-            boxes += "]";*/
-            tw.WriteLine("[" + DateTime.Now + "]  " + beforeMessage + " :: " + nodeDetails + /*boxes +*/ " :: " + afterMessage);
+            boxes += "]";
+            tw.WriteLine(/*"[" + DateTime.Now + "]  " +*/ beforeMessage + " :: " + nodeDetails + boxes + " :: " + afterMessage);
             //tw.WriteLine(boxes);
             tw.Close();
         }

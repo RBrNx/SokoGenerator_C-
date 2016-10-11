@@ -1,467 +1,352 @@
-[11/10/2016 11:48:07]  Starting Greedy Search
-[11/10/2016 11:48:07]  Dequeued :: Cost - 0	 Move - 	 PlayerPos - (5, 6) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 1	 Move - u	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 1	 Move - l	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 1	 Move - u	 PlayerPos - (5, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 2	 Move - u	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 2	 Move - d	 PlayerPos - (5, 6) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 2	 Move - l	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 2	 Move - u	 PlayerPos - (5, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 3	 Move - u	 PlayerPos - (5, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 3	 Move - d	 PlayerPos - (5, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 2	 Move - l	 PlayerPos - (4, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 3	 Move - u	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 3	 Move - r	 PlayerPos - (5, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 3	 Move - d	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 3	 Move - u	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 4	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 4	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 4	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 4	 Move - l	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 4	 Move - l	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 5	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 5	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 5	 Move - l	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 5	 Move - l	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 6	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 6	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 6	 Move - r	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 7	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 7	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 7	 Move - l	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 7	 Move - d	 PlayerPos - (3, 5) :: Deadlock
-[11/10/2016 11:48:07]  Dequeued :: Cost - 7	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 8	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 8	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 8	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 8	 Move - l	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 8	 Move - d	 PlayerPos - (4, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - u	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - r	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - d	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 5	 Move - d	 PlayerPos - (3, 5) :: Deadlock
-[11/10/2016 11:48:07]  Dequeued :: Cost - 6	 Move - u	 PlayerPos - (2, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 7	 Move - u	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 7	 Move - d	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 7	 Move - l	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 7	 Move - l	 PlayerPos - (1, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 8	 Move - u	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 8	 Move - r	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 8	 Move - d	 PlayerPos - (1, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 8	 Move - d	 PlayerPos - (1, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - u	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - r	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - d	 PlayerPos - (1, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 9	 Move - r	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 10	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 10	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 10	 Move - l	 PlayerPos - (1, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 10	 Move - r	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - l	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 9	 Move - d	 PlayerPos - (1, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 10	 Move - u	 PlayerPos - (1, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 11	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - l	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 11	 Move - d	 PlayerPos - (3, 5) :: Deadlock
-[11/10/2016 11:48:07]  Dequeued :: Cost - 12	 Move - d	 PlayerPos - (4, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - u	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - r	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - d	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 10	 Move - u	 PlayerPos - (2, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - u	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - d	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - l	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 5	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 6	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 6	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 6	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 6	 Move - l	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 8	 Move - u	 PlayerPos - (1, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - u	 PlayerPos - (1, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - r	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 9	 Move - d	 PlayerPos - (1, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 11	 Move - l	 PlayerPos - (1, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - u	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - r	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - d	 PlayerPos - (1, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 10	 Move - u	 PlayerPos - (1, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - u	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - r	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 11	 Move - d	 PlayerPos - (1, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 11	 Move - r	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 12	 Move - l	 PlayerPos - (1, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 12	 Move - r	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - l	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 13	 Move - d	 PlayerPos - (3, 5) :: Deadlock
-[11/10/2016 11:48:07]  Dequeued :: Cost - 13	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - l	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 14	 Move - d	 PlayerPos - (4, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 15	 Move - u	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 15	 Move - r	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 15	 Move - d	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 12	 Move - r	 PlayerPos - (5, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - u	 PlayerPos - (5, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - d	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 13	 Move - l	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 13	 Move - u	 PlayerPos - (5, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - u	 PlayerPos - (5, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - d	 PlayerPos - (5, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 13	 Move - d	 PlayerPos - (5, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - u	 PlayerPos - (5, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - d	 PlayerPos - (5, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 14	 Move - l	 PlayerPos - (4, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 15	 Move - d	 PlayerPos - (4, 6) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 16	 Move - u	 PlayerPos - (4, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 16	 Move - r	 PlayerPos - (5, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 16	 Move - l	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 16	 Move - l	 PlayerPos - (3, 6) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 17	 Move - u	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 17	 Move - r	 PlayerPos - (4, 6) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 17	 Move - u	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 18	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 18	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 18	 Move - l	 PlayerPos - (2, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 18	 Move - l	 PlayerPos - (2, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 19	 Move - u	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 19	 Move - r	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 19	 Move - u	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 20	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 20	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 20	 Move - d	 PlayerPos - (2, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 20	 Move - l	 PlayerPos - (1, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 20	 Move - r	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 21	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 21	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 21	 Move - l	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 20	 Move - l	 PlayerPos - (1, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 21	 Move - u	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 21	 Move - r	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 21	 Move - d	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 22	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 22	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 22	 Move - l	 PlayerPos - (2, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 19	 Move - r	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 20	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 20	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 20	 Move - l	 PlayerPos - (2, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 21	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 22	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 22	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 22	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 22	 Move - l	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 22	 Move - l	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 23	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 23	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 23	 Move - l	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 23	 Move - l	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 24	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 24	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 24	 Move - d	 PlayerPos - (2, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 24	 Move - d	 PlayerPos - (2, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 25	 Move - u	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 25	 Move - r	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 23	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 24	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 24	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 24	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 24	 Move - l	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 24	 Move - u	 PlayerPos - (2, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 25	 Move - u	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 25	 Move - d	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 25	 Move - l	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 25	 Move - l	 PlayerPos - (1, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - u	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - r	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 25	 Move - r	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - u	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - l	 PlayerPos - (2, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 24	 Move - r	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 25	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 25	 Move - d	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 25	 Move - l	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 25	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 26	 Move - l	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 26	 Move - u	 PlayerPos - (4, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - u	 PlayerPos - (4, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - r	 PlayerPos - (5, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - d	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 26	 Move - r	 PlayerPos - (5, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - u	 PlayerPos - (5, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - d	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - l	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 27	 Move - u	 PlayerPos - (5, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 28	 Move - u	 PlayerPos - (5, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 28	 Move - d	 PlayerPos - (5, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 26	 Move - r	 PlayerPos - (4, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - u	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - r	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - d	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - l	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 28	 Move - u	 PlayerPos - (5, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 29	 Move - u	 PlayerPos - (5, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 29	 Move - d	 PlayerPos - (5, 3) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 29	 Move - l	 PlayerPos - (4, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 29	 Move - l	 PlayerPos - (4, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 30	 Move - u	 PlayerPos - (4, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 30	 Move - r	 PlayerPos - (5, 2) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 30	 Move - d	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 30	 Move - l	 PlayerPos - (3, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 30	 Move - d	 PlayerPos - (4, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 31	 Move - u	 PlayerPos - (4, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 31	 Move - r	 PlayerPos - (5, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 31	 Move - d	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 31	 Move - d	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 32	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 32	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 32	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 32	 Move - l	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 32	 Move - d	 PlayerPos - (4, 5) :: Deadlock
-[11/10/2016 11:48:07]  Dequeued :: Cost - 26	 Move - d	 PlayerPos - (4, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - u	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - r	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - d	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 27	 Move - l	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 32	 Move - r	 PlayerPos - (5, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 33	 Move - u	 PlayerPos - (5, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 33	 Move - d	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 33	 Move - l	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 33	 Move - d	 PlayerPos - (5, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 34	 Move - u	 PlayerPos - (5, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 34	 Move - d	 PlayerPos - (5, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 34	 Move - l	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 34	 Move - l	 PlayerPos - (4, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 35	 Move - u	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 35	 Move - r	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 35	 Move - d	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 35	 Move - l	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 35	 Move - l	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 36	 Move - u	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 36	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 36	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 36	 Move - u	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - d	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - l	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 37	 Move - l	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 38	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 38	 Move - r	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 36	 Move - d	 PlayerPos - (3, 6) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - u	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - r	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 38	 Move - u	 PlayerPos - (2, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 39	 Move - u	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 39	 Move - d	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 39	 Move - l	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 39	 Move - l	 PlayerPos - (1, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 40	 Move - u	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 40	 Move - r	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 36	 Move - r	 PlayerPos - (4, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - u	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - r	 PlayerPos - (5, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - d	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - l	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 40	 Move - u	 PlayerPos - (1, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 41	 Move - u	 PlayerPos - (1, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 41	 Move - r	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 41	 Move - d	 PlayerPos - (1, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 35	 Move - u	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 36	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 36	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 36	 Move - d	 PlayerPos - (4, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 36	 Move - l	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 36	 Move - l	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - r	 PlayerPos - (4, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 37	 Move - l	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 37	 Move - d	 PlayerPos - (3, 5) :: Deadlock
-[11/10/2016 11:48:07]  Dequeued :: Cost - 37	 Move - l	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 38	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 38	 Move - r	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 38	 Move - d	 PlayerPos - (2, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 38	 Move - d	 PlayerPos - (2, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 39	 Move - u	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 39	 Move - r	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 39	 Move - r	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 40	 Move - u	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 40	 Move - r	 PlayerPos - (4, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 40	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 40	 Move - l	 PlayerPos - (2, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 40	 Move - d	 PlayerPos - (3, 6) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 41	 Move - u	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 41	 Move - r	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 41	 Move - u	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 42	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 42	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 42	 Move - l	 PlayerPos - (2, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 42	 Move - l	 PlayerPos - (2, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 43	 Move - u	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 43	 Move - r	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 43	 Move - u	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 44	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 44	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 44	 Move - d	 PlayerPos - (2, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 44	 Move - r	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 45	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 45	 Move - d	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 45	 Move - l	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 45	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 46	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 46	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 46	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 46	 Move - l	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 46	 Move - l	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 47	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 47	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 47	 Move - r	 PlayerPos - (4, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 48	 Move - u	 PlayerPos - (4, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 48	 Move - r	 PlayerPos - (5, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 48	 Move - d	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 48	 Move - l	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 47	 Move - d	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 48	 Move - u	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 48	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 48	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 48	 Move - l	 PlayerPos - (2, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 48	 Move - l	 PlayerPos - (2, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 49	 Move - u	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 49	 Move - r	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 49	 Move - u	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 50	 Move - u	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 50	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 50	 Move - d	 PlayerPos - (2, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 50	 Move - d	 PlayerPos - (2, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 51	 Move - u	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 51	 Move - r	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 48	 Move - d	 PlayerPos - (3, 6) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 49	 Move - u	 PlayerPos - (3, 5) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 49	 Move - r	 PlayerPos - (4, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 50	 Move - u	 PlayerPos - (2, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 51	 Move - u	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 51	 Move - d	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 51	 Move - l	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 50	 Move - r	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 51	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 51	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 51	 Move - l	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 51	 Move - d	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - u	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - d	 PlayerPos - (2, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 51	 Move - l	 PlayerPos - (1, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - u	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - r	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 52	 Move - d	 PlayerPos - (2, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 53	 Move - u	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 53	 Move - r	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 51	 Move - d	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - u	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - l	 PlayerPos - (2, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 51	 Move - r	 PlayerPos - (3, 5) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - u	 PlayerPos - (3, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - r	 PlayerPos - (4, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - d	 PlayerPos - (3, 6) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 52	 Move - l	 PlayerPos - (2, 5) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 52	 Move - u	 PlayerPos - (1, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 53	 Move - u	 PlayerPos - (1, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 53	 Move - r	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 53	 Move - d	 PlayerPos - (1, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 53	 Move - r	 PlayerPos - (2, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 54	 Move - u	 PlayerPos - (2, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 54	 Move - r	 PlayerPos - (3, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 54	 Move - d	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 54	 Move - l	 PlayerPos - (1, 2) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 54	 Move - u	 PlayerPos - (2, 1) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 55	 Move - r	 PlayerPos - (3, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 55	 Move - d	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 55	 Move - l	 PlayerPos - (1, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 55	 Move - d	 PlayerPos - (2, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 56	 Move - u	 PlayerPos - (2, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 56	 Move - r	 PlayerPos - (3, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 56	 Move - d	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 56	 Move - l	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 56	 Move - d	 PlayerPos - (2, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - u	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - d	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - l	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 57	 Move - l	 PlayerPos - (1, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - u	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - r	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 56	 Move - r	 PlayerPos - (3, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - u	 PlayerPos - (3, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - r	 PlayerPos - (4, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - l	 PlayerPos - (2, 2) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 58	 Move - u	 PlayerPos - (1, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 59	 Move - u	 PlayerPos - (1, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 59	 Move - r	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 59	 Move - d	 PlayerPos - (1, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 56	 Move - l	 PlayerPos - (1, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - u	 PlayerPos - (1, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - r	 PlayerPos - (2, 2) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - d	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 57	 Move - d	 PlayerPos - (1, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - u	 PlayerPos - (1, 2) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 57	 Move - u	 PlayerPos - (2, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - u	 PlayerPos - (2, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - r	 PlayerPos - (3, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - d	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - l	 PlayerPos - (1, 2) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 54	 Move - r	 PlayerPos - (3, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 55	 Move - u	 PlayerPos - (3, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 55	 Move - r	 PlayerPos - (4, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 55	 Move - l	 PlayerPos - (2, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 55	 Move - l	 PlayerPos - (2, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 56	 Move - u	 PlayerPos - (2, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 56	 Move - r	 PlayerPos - (3, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 56	 Move - d	 PlayerPos - (2, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 56	 Move - u	 PlayerPos - (2, 1) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - r	 PlayerPos - (3, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - d	 PlayerPos - (2, 2) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - l	 PlayerPos - (1, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 56	 Move - d	 PlayerPos - (2, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - u	 PlayerPos - (2, 2) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - d	 PlayerPos - (2, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - l	 PlayerPos - (1, 3) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 57	 Move - d	 PlayerPos - (2, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - u	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - r	 PlayerPos - (3, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - d	 PlayerPos - (2, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 57	 Move - l	 PlayerPos - (1, 3) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - u	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - r	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 58	 Move - r	 PlayerPos - (3, 4) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 59	 Move - r	 PlayerPos - (4, 4) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 59	 Move - d	 PlayerPos - (3, 5) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 59	 Move - l	 PlayerPos - (2, 4) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 59	 Move - r	 PlayerPos - (2, 2) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 60	 Move - u	 PlayerPos - (2, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 60	 Move - r	 PlayerPos - (3, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 60	 Move - d	 PlayerPos - (2, 3) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 60	 Move - l	 PlayerPos - (1, 2) :: Redundant
-[11/10/2016 11:48:07]  Dequeued :: Cost - 58	 Move - u	 PlayerPos - (1, 2) :: Deadlock
-[11/10/2016 11:48:07]  Dequeued :: Cost - 56	 Move - u	 PlayerPos - (2, 1) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - r	 PlayerPos - (3, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - d	 PlayerPos - (2, 2) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 57	 Move - l	 PlayerPos - (1, 1) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 57	 Move - l	 PlayerPos - (1, 1) :: Exploring
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - r	 PlayerPos - (2, 1) :: Redundant
-[11/10/2016 11:48:07]  Child Node :: Cost - 58	 Move - d	 PlayerPos - (1, 2) :: Added to Fringe
-[11/10/2016 11:48:07]  Dequeued :: Cost - 58	 Move - d	 PlayerPos - (1, 2) :: GoalState
+[11/10/2016 15:27:08]  Starting Greedy Search
+Dequeued :: 	 PlayerPos - (5, 6)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (5, 5)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 6)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (5, 4)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 3)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 5)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(3, 4), (2, 5), (3, 5), (4, 3), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(3, 4), (4, 4), (2, 5), (3, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(3, 4), (2, 5), (3, 5), (4, 3), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(3, 4), (2, 5), (3, 5), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(3, 4), (2, 5), (3, 5), (4, 3), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(3, 4), (2, 5), (3, 5), (4, 3), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (2, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (2, 4), (3, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (1, 4), (3, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (1, 4), (3, 6), ] :: Deadlock
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(2, 5), (3, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (2, 4), (3, 6), ] :: Deadlock
+Dequeued :: 	 PlayerPos - (2, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (1, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 2)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (1, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (1, 5), (3, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(2, 5), (3, 5), (1, 5), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (1, 5), (3, 6), ] :: Deadlock
+Dequeued :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(2, 5), (3, 5), (2, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (2, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 2)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 1)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 2)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Redundant
+Dequeued :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (1, 6), (3, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (1, 6), (3, 6), ] :: Deadlock
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(2, 5), (3, 5), (1, 6), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (5, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (5, 3)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 2)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 6)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 6)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 6)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 6)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (1, 6), (3, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(2, 5), (3, 5), (4, 3), (1, 6), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(2, 5), (4, 3), (1, 6), (3, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(2, 5), (4, 3), (1, 6), (3, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 6)		 Boxes [(2, 5), (4, 3), (1, 6), (3, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (4, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 4)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 4)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (3, 4), (1, 5), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (3, 4), (1, 5), ] :: Redundant
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (2, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (1, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 1)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (2, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (2, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 1)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 1), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 1)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 1)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 1)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (2, 1)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (2, 4), (4, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 2)		 Boxes [(1, 6), (1, 5), (2, 4), (4, 1), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 3)		 Boxes [(1, 6), (1, 5), (2, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(1, 6), (1, 5), (2, 4), (4, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 1)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 1)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 4)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (5, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Redundant
+Dequeued :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (1, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Redundant
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (1, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 3)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 2)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 3), ] :: Redundant
+Dequeued :: 	 PlayerPos - (4, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 4)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (5, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Redundant
+Dequeued :: 	 PlayerPos - (3, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 5)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 6)		 Boxes [(4, 3), (1, 6), (1, 5), (2, 4), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (5, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (5, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (4, 2), ] :: Redundant
+Child Node :: 	 PlayerPos - (4, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (3, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (4, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (3, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (4, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (3, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (5, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (3, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (3, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (2, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (3, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (2, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (2, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (4, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (2, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (3, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (3, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (2, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Redundant
+Child Node :: 	 PlayerPos - (2, 4)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (1, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (1, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (1, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 1), ] :: Added to Fringe
+Child Node :: 	 PlayerPos - (2, 3)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Redundant
+Dequeued :: 	 PlayerPos - (1, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 1), ] :: Deadlock
+Dequeued :: 	 PlayerPos - (1, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Exploring
+Child Node :: 	 PlayerPos - (2, 1)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 2), ] :: Redundant
+Child Node :: 	 PlayerPos - (1, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 3), ] :: Added to Fringe
+Dequeued :: 	 PlayerPos - (1, 2)		 Boxes [(1, 6), (1, 5), (1, 4), (1, 3), ] :: GoalState

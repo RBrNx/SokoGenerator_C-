@@ -6,10 +6,10 @@ namespace SokoSolver
     {
         public State initialState;
         public HashSet<Coordinate> walls;
-        public HashSet<Coordinate> goals;
+        public List<Coordinate> goals;
         public Dictionary<Coordinate, Coordinate> blocked;
 
-        public Problem(HashSet<Coordinate> walls, State initialState, HashSet<Coordinate> goals)
+        public Problem(HashSet<Coordinate> walls, State initialState, List<Coordinate> goals)
         {
             this.initialState = initialState;
             this.walls = walls;
@@ -18,8 +18,6 @@ namespace SokoSolver
 
         public bool goalTest(State state)
         {
-
-
             foreach(Coordinate box in state.boxes)
             {
                 if (!goals.Contains(box))
@@ -65,7 +63,7 @@ namespace SokoSolver
             List<string> actionList = new List<string>();
             int row = state.player.row;
             int col = state.player.col;
-            HashSet<Coordinate> boxes = state.boxes;
+            List<Coordinate> boxes = new List<Coordinate>(state.boxes);
 
             //Checking if moving up, right, down, left is valid
             //For each, check if next player move is a wall
