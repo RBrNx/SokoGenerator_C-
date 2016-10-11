@@ -10,8 +10,8 @@ namespace SokoSolver
     public class Solver
     {
         private HashSet<Coordinate> walls;
-        private List<Coordinate> goals;
-        private List<Coordinate> boxes;
+        private HashSet<Coordinate> goals;
+        private HashSet<Coordinate> boxes;
 
         public List<List<char>> grid;
 
@@ -33,16 +33,16 @@ namespace SokoSolver
         public Solver()
         {
             walls = new HashSet<Coordinate>();
-            goals = new List<Coordinate>();
-            boxes = new List<Coordinate>();
-            grid = new List<List<char>>();
+            goals = new HashSet<Coordinate>();
+            boxes = new HashSet<Coordinate>();
+            //grid = new List<List<char>>();
         }
 
         public void loadLevel(Level level)
         {
             for(int y = 0; y < level.grid.Count(); y++)
             {
-                List<char> row = new List<char>();
+                //List<char> row = new List<char>();
                 for(int x = 0; x < level.grid[y].Count(); x++)
                 {
                     char c = level.grid[y][x];
@@ -50,16 +50,16 @@ namespace SokoSolver
                     if(c == WALL)
                     {
                         walls.Add(new Coordinate(y, x));
-                        row.Add(c);
+                        //row.Add(c);
                     }
-                    else if(c == GOAL)
+                    /*else if(c == GOAL)
                     {
                         row.Add('.');
                     }
                     else
                     {
                         row.Add(' ');
-                    }
+                    }*/
 
                     if (c == PLAYER || c == PONGOAL)
                     {
@@ -74,7 +74,7 @@ namespace SokoSolver
                         boxes.Add(new Coordinate(y, x));
                     }
                 }
-                grid.Add(row);
+                //grid.Add(row);
             }
 
             prob = new Problem(walls, new State(boxes, player), goals);
@@ -113,7 +113,7 @@ namespace SokoSolver
 
         public string solve()
         {
-            Search s = new Search(h, grid);
+            Search s = new Search(h/*, grid*/);
             return s.GreedySearch(prob);
             //return s.DFSSearch(prob);
         }

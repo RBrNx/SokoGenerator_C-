@@ -6,10 +6,9 @@ namespace SokoSolver
     {
         public State initialState;
         public HashSet<Coordinate> walls;
-        public List<Coordinate> goals;
-        public Dictionary<Coordinate, Coordinate> blocked;
+        public HashSet<Coordinate> goals;
 
-        public Problem(HashSet<Coordinate> walls, State initialState, List<Coordinate> goals)
+        public Problem(HashSet<Coordinate> walls, State initialState, HashSet<Coordinate> goals)
         {
             this.initialState = initialState;
             this.walls = walls;

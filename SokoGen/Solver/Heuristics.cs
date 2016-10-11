@@ -6,12 +6,12 @@ namespace SokoSolver
 {
     class Heuristics
     {
-        private List<Coordinate> goals;
+        private HashSet<Coordinate> goals;
         double[,] cost;
         HungarianAlgorithm h;
         char heuristicChoice;
 
-        public Heuristics(List<Coordinate> goals, char heuristicChoice)
+        public Heuristics(HashSet<Coordinate> goals, char heuristicChoice)
         {
             this.goals = goals;
             this.heuristicChoice = heuristicChoice;
@@ -33,7 +33,7 @@ namespace SokoSolver
 
         private double calculate(State state, string method)
         {
-            List<Coordinate> boxes = state.boxes;
+            HashSet<Coordinate> boxes = state.boxes;
             double sum = 0;
 
             Coordinate player = state.player;
@@ -49,7 +49,7 @@ namespace SokoSolver
             return sum;
         }
 
-        private double getDist(Coordinate obj, List<Coordinate> sets, string method)
+        private double getDist(Coordinate obj, HashSet<Coordinate> sets, string method)
         {
             double minDist = 1000000;
 

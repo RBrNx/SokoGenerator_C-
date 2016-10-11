@@ -40,13 +40,13 @@ namespace SokoSolver
     {
         private static Heuristics h;
         Logger logger;
-        List<List<char>> grid;
+        //List<List<char>> grid;
 
-        public Search(Heuristics h, List<List<char>> tGrid)
+        public Search(Heuristics h/*, List<List<char>> tGrid*/)
         {
             Search.h = h;
             logger = new Logger();
-            grid = tGrid.Select(x => x.ToList()).ToList();
+            //grid = tGrid.Select(x => x.ToList()).ToList();
         }
 
         public string GreedySearch(Problem p)
@@ -54,7 +54,7 @@ namespace SokoSolver
             int totalNode = 1;
             int redundant = 1;
             Node initial = new Node(p.initialState, null, 0, "", h);
-            List<State> explored = new List<State>();
+            HashSet<State> explored = new HashSet<State>();
             SimplePriorityQueue<Node> fringe = new SimplePriorityQueue<Node>();
             fringe.Enqueue(initial, 0);
 
@@ -82,11 +82,8 @@ namespace SokoSolver
                             totalNode++;
                             if (!explored.Contains(child.state) && !fringe.Contains(child))
                             {
-                                //if (!fringe.Contains(child))
-                                //{
                                     logger.writeToLog(child, "Child Node", "Added to Fringe");
                                     fringe.Enqueue(child, (float)h.getHeuristic(child.state));
-                                //}
                             }
                             else
                             {
@@ -138,7 +135,7 @@ namespace SokoSolver
             while(fringe.Count > 0)
             {
                 node = fringe.Pop();
-                logger.writeToLog(node, "Dequeued", "Exploring");
+                //logger.writeToLog(node, "Dequeued", "Exploring");
                 explored.Add(node.state);
                 List<string> actions = p.actions(node.state);
                 foreach(string action in actions)
@@ -153,18 +150,18 @@ namespace SokoSolver
                             string solution = getSolution(child);
                             if (p.goalTest(child.state))
                             {
-                                logger.writeToLog(child, "Solved!", "GoalState");
+                                //logger.writeToLog(child, "Solved!", "GoalState");
                                 return solution;
                             }
                             if (!p.deadlockTest(child.state))
                             {
-                                logger.writeToLog(child, "Child Node", "Added to Fringe");
+                                //logger.writeToLog(child, "Child Node", "Added to Fringe");
                                 fringe.Push(child);
                             }
                         }
                         else
                         {
-                            logger.writeToLog(child, "Child Node", "Redundant");
+                            //logger.writeToLog(child, "Child Node", "Redundant");
                             redundant++;
                         }
                     }
@@ -182,23 +179,23 @@ namespace SokoSolver
             }
             else
             {
-                TextWriter tw = new StreamWriter("sol.txt", false);
-                List<List<char>> tempGrid;
+                //TextWriter tw = new StreamWriter("sol.txt", false);
+                //List<List<char>> tempGrid;
                 while (n.parent != null)
                 {
-                    tempGrid = grid.Select(x => x.ToList()).ToList();
-                    Print(tempGrid, n, tw);
+                    //tempGrid = grid.Select(x => x.ToList()).ToList();
+                    //Print(tempGrid, n, tw);
                     result = n.move + " " + result;
                     n = n.parent;      
                 }
-                tw.WriteLine("Done");
-                tw.Close();
+                //tw.WriteLine("Done");
+                //tw.Close();
             }
 
             return result;
         }
 
-        private void Print(List<List<char>> temp, Node node, TextWriter tw)
+        /*private void Print(List<List<char>> temp, Node node, TextWriter tw)
         {
             for(int i = 0; i < node.state.boxes.Count; i++)
             {
@@ -230,13 +227,11 @@ namespace SokoSolver
             tw.WriteLine();
             tw.WriteLine();
 
-        }
+        }*/
 
         private Node getChild(Problem p, Node n, string action)
         {
-            List<Coordinate> boxes = new List<Coordinate>(n.state.boxes);
-            //grid = level.grid.Select(x => x.ToList()).ToList(); //Stack Overflow said so
-            //List<Coordinate> boxes = n.state.boxes;
+            HashSet<Coordinate> boxes = new HashSet<Coordinate>(n.state.boxes);
             int row = n.state.player.row;
             int col = n.state.player.col;
 

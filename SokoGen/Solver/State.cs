@@ -4,12 +4,12 @@ namespace SokoSolver
 {
     class State
     {
-        public List<Coordinate> boxes;
+        public HashSet<Coordinate> boxes;
         public Coordinate player;
 
-        public State(List<Coordinate> boxes, Coordinate player)
+        public State(HashSet<Coordinate> boxes, Coordinate player)
         {
-            this.boxes = new List<Coordinate>(boxes);
+            this.boxes = new HashSet<Coordinate>(boxes);
             this.player = player;
         }
 
