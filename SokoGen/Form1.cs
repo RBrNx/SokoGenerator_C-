@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
+using SokoSolver;
+
 namespace SokoGen
 {
     public partial class mainForm : Form
@@ -18,6 +20,7 @@ namespace SokoGen
         ContextMenuStrip rightClickMenu;
         List<float> timeLimits = new List<float>();
         bool genSeedEnabled = false;
+        Solver solver = new Solver();
 
         public mainForm()
         {
@@ -194,6 +197,16 @@ namespace SokoGen
 
             ListLevels(levelSet);
             DisplayLevel(levelSet[0]);
+
+            if (solver.loadLevel("C:/Users/watsonco/workspace/Copy of Sokoban/src/test.txt"))
+            {
+                string solution = solver.solve();
+                Console.WriteLine(solution);
+            }
+            else
+            {
+                Console.WriteLine("No File");
+            }
         }
 
         private void LoadImages()
@@ -325,6 +338,5 @@ namespace SokoGen
             genSeedEnabled = !textbox_GenSeed.ReadOnly;
         }
     }
-
 
 }
