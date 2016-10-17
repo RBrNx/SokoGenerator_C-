@@ -73,10 +73,6 @@ namespace SokoSolver
 
             if (!walls.Contains(newPlayer))
             {
-                /*if(!boxes.Contains(newPlayer) && !boxes.Contains(newBox) && !walls.Contains(newBox))
-                {
-                    actionList.Add("u");
-                }*/
                 if(boxes.Contains(newPlayer) && (boxes.Contains(newBox) || walls.Contains(newBox))) {;}
                 else { actionList.Add("u"); }
             }
@@ -86,10 +82,6 @@ namespace SokoSolver
 
             if (!walls.Contains(newPlayer))
             {
-                /*if (!boxes.Contains(newPlayer) && !boxes.Contains(newBox) && !walls.Contains(newBox))
-                {
-                    actionList.Add("r");
-                }*/
                 if (boxes.Contains(newPlayer) && (boxes.Contains(newBox) || walls.Contains(newBox))) {; }
                 else { actionList.Add("r"); }
             }
@@ -99,10 +91,6 @@ namespace SokoSolver
 
             if (!walls.Contains(newPlayer))
             {
-                /*if (!boxes.Contains(newPlayer) && !boxes.Contains(newBox) && !walls.Contains(newBox))
-                {
-                    actionList.Add("d");
-                }*/
                 if (boxes.Contains(newPlayer) && (boxes.Contains(newBox) || walls.Contains(newBox))) {; }
                 else { actionList.Add("d"); }
             }
@@ -112,15 +100,53 @@ namespace SokoSolver
 
             if (!walls.Contains(newPlayer))
             {
-                /*if (!boxes.Contains(newPlayer) && !boxes.Contains(newBox) && !walls.Contains(newBox))
-                {
-                    actionList.Add("l");
-                }*/
                 if (boxes.Contains(newPlayer) && (boxes.Contains(newBox) || walls.Contains(newBox))) {; }
                 else { actionList.Add("l"); }
             }
 
             return actionList;
+        }
+
+        public List<string> boxActions(Coordinate goalPos)
+        {
+            List<string> actionList = new List<string>();
+            int row = goalPos.row;
+            int col = goalPos.col;
+
+            Coordinate newBox = new Coordinate(row - 1, col);
+            Coordinate newPlayer = new Coordinate(row - 2, col);
+
+            if (!walls.Contains(newPlayer) && !walls.Contains(newBox))
+            {
+                actionList.Add("u");
+            }
+
+            newBox = new Coordinate(row, col + 1);
+            newPlayer = new Coordinate(row, col + 2);
+
+            if (!walls.Contains(newPlayer) && !walls.Contains(newBox))
+            {
+                actionList.Add("r");
+            }
+
+            newBox = new Coordinate(row + 1, col);
+            newPlayer = new Coordinate(row + 2, col);
+
+            if (!walls.Contains(newPlayer) && !walls.Contains(newBox))
+            {
+                actionList.Add("d");
+            }
+
+            newBox = new Coordinate(row, col - 1);
+            newPlayer = new Coordinate(row, col - 2);
+
+            if (!walls.Contains(newPlayer) && !walls.Contains(newBox))
+            {
+                actionList.Add("l");
+            }
+
+            return actionList;
+
         }
 
         private bool setContains(List<Coordinate> set, int row, int col)

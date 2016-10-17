@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace SokoSolver
 {
@@ -31,9 +32,9 @@ namespace SokoSolver
             logfilePath = filepath;
         }
 
-        public void writeToLog(string message, bool printToConsole = false)
+        public void writeToLog(string message, bool printToConsole = false, bool append = true)
         {
-            tw = new StreamWriter(logfilePath, true);
+            tw = new StreamWriter(logfilePath, append);
             string print = "[" + DateTime.Now + "]  " + message;
             tw.WriteLine(print);
             tw.Close();
@@ -44,14 +45,15 @@ namespace SokoSolver
         public void writeToLog(Node n, string beforeMessage, string afterMessage)
         {
             tw = new StreamWriter(logfilePath, true);
+            List<Coordinate> listboxes = new List<Coordinate>(n.state.boxes);
             string nodeDetails = /*"Cost - " + n.cost + "\t Move - " + n.move + */"\t PlayerPos - (" + n.state.player.col + ", " + n.state.player.row + ")";
-            /*string boxes = "\t\t Boxes [";
-            for(int i = 0; i < n.state.boxes.Count; i++)
+            string boxes = "\t\t Boxes [";
+            for(int i = 0; i < listboxes.Count; i++)
             {
-                boxes += "(" + n.state.boxes[i].col + ", " + n.state.boxes[i].row + "), ";
+                boxes += "(" + listboxes[i].col + ", " + listboxes[i].row + "), ";
             }
-            boxes += "]";*/
-            tw.WriteLine("[" + DateTime.Now + "]  " + beforeMessage + " :: " + nodeDetails + /*boxes +*/ " :: " + afterMessage);
+            boxes += "]";
+            tw.WriteLine("[" + DateTime.Now + "]  " + beforeMessage + " :: " + nodeDetails + boxes + " :: " + afterMessage);
             //tw.WriteLine(boxes);
             tw.Close();
         }

@@ -29,6 +29,7 @@ namespace SokoSolver
         char BOXONGOAL = '*';
         char PLAYER = '@';
         char PONGOAL = '+';
+        char DEADFIELD = 'x';
 
         public Solver()
         {
@@ -111,11 +112,44 @@ namespace SokoSolver
             }
         }
 
-        public string solve()
+        public bool solve(ref string solution)
         {
             Search s = new Search(h/*, grid*/);
-            return s.GreedySearch(prob);
-            //return s.DFSSearch(prob);
+            string result = s.GreedySearch(prob);
+            if (result != "Failed to Solve Puzzle")
+            {
+                solution = result;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Level findStaticDeadlocks(Level level)
+        {
+            loadLevel(level);
+            player = new Coordinate(0, 0);
+            prob.initialState.player = player;
+            State state = new State(goals, player);
+            Search s = new Search(h);
+            List<Coordinate> visited = s.findDeadlocks(prob);
+
+            Level newLevel = new Level(level);
+
+            for(int y = 0; y < newLevel.grid.Count; y++)
+            {
+                for(int x = 0; x < newLevel.grid[y].Count; x++)
+                {
+                    if (!visited.Contains(new Coordinate(y, x)) && newLevel.grid[y][x] != WALL)
+                    {
+                        newLevel.grid[y][x] = DEADFIELD;
+                    }
+                }
+            }
+
+            return newLevel;
         }
     }
 }

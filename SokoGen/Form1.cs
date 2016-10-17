@@ -5,8 +5,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-using SokoSolver;
-
 namespace SokoGen
 {
     public partial class mainForm : Form
@@ -20,7 +18,7 @@ namespace SokoGen
         ContextMenuStrip rightClickMenu;
         List<float> timeLimits = new List<float>();
         bool genSeedEnabled = false;
-        Solver solver = new Solver();
+
 
         public mainForm()
         {
@@ -29,7 +27,7 @@ namespace SokoGen
             timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += new EventHandler(timerTick);
-            Generator = new LevelGen(this, backgroundWorker, timer);
+            Generator = new LevelGen(this, backgroundWorker);
             InitializeForms();
         }
 
@@ -197,16 +195,6 @@ namespace SokoGen
 
             ListLevels(levelSet);
             DisplayLevel(levelSet[0]);
-
-            if (solver.loadLevel("C:/Users/watsonco/workspace/Copy of Sokoban/src/test.txt"))
-            {
-                string solution = solver.solve();
-                Console.WriteLine(solution);
-            }
-            else
-            {
-                Console.WriteLine("No File");
-            }
         }
 
         private void LoadImages()
@@ -279,7 +267,7 @@ namespace SokoGen
 
             for(int i = 0; i < levelSet.Count; i++)
             {
-                TimeSpan genTime = new TimeSpan(0, 2, 45);
+                TimeSpan genTime = levelSet[i].generationTime;
                 string diff = "Easy";
                 listbox_LevelSet.Items.Add("Level " + (i+1) + " - " + genTime.ToString(@"hh\:mm\:ss") + " - " + diff);
             }
@@ -294,17 +282,19 @@ namespace SokoGen
 
         private void combo_NumBoxes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Generator.noOfBoxes = combo_NumBoxes.SelectedIndex;
+            int numBoxes = 0;
+            int.TryParse((string)combo_NumBoxes.SelectedValue, out numBoxes);
+            Generator.noOfBoxes = numBoxes;
         }
 
         private void combo_RoomHeight_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Generator.roomHeight = combo_RoomHeight.SelectedIndex;
+            Generator.roomHeight = combo_RoomHeight.SelectedIndex * 3;
         }
 
         private void combo_RoomWidth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Generator.roomWidth = combo_RoomWidth.SelectedIndex;
+            Generator.roomWidth = combo_RoomWidth.SelectedIndex * 3;
         }
 
         private void combo_Difficulty_SelectedIndexChanged(object sender, EventArgs e)

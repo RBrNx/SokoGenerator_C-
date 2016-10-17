@@ -20,11 +20,14 @@ namespace SokoSolver
 
         public static bool operator == (Coordinate c1, Coordinate c2)
         {
+            if (ReferenceEquals(c1, null)) return (ReferenceEquals(c2, null));
             return c1.row == c2.row && c1.col == c2.col;
         }
 
         public static bool operator != (Coordinate c1, Coordinate c2)
         {
+            if (ReferenceEquals(c1, null) && !ReferenceEquals(c2, null)) return true;
+            if (!ReferenceEquals(c1, null) && ReferenceEquals(c2, null)) return true;
             return (c1.row != c2.row || c1.col != c2.col);
         }
 

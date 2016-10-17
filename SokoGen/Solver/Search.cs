@@ -58,6 +58,11 @@ namespace SokoSolver
             SimplePriorityQueue<Node> fringe = new SimplePriorityQueue<Node>();
             fringe.Enqueue(initial, 0);
 
+            if (p.deadlockTest(initial.state))
+            {
+                return getSolution(null);
+            }
+
             logger.writeToLog("Starting Greedy Search");
             while (fringe.Count > 0)
             {
@@ -175,7 +180,7 @@ namespace SokoSolver
             string result = "";
             if(n == null)
             {
-                result = "Failed to solve Puzzle";
+                result = "Failed to Solve Puzzle";
             }
             else
             {
@@ -287,6 +292,68 @@ namespace SokoSolver
             }
 
             return new Node(new State(boxes, newPlayer), n, newCost, choice.ToString(), h);
+        }
+
+        private Coordinate getChild(Problem p, Coordinate c, string action)
+        {
+            switch (action)
+            {
+                case "u":
+                    Coordinate newBox = new Coordinate(c.row - 1, c.col);
+                    return newBox;
+                case "d":
+                    newBox = new Coordinate(c.row + 1, c.col);
+                    return newBox;
+
+                case "l":
+                    newBox = new Coordinate(c.row, c.col - 1);
+                    return newBox;
+
+                case "r":
+                    newBox = new Coordinate(c.row, c.col + 1);
+                    return newBox;
+                default:
+                    return null;
+            }
+
+        }
+
+
+        public List<Coordinate> findDeadlocks(Problem p)
+        {   
+            HashSet<Coordinate> explored = new HashSet<Coordinate>();
+            List<Coordinate> visited = new List<Coordinate>();
+            List<Coordinate> goals = new List<Coordinate>(p.goals);
+            Queue<Coordinate> queue = new Queue<Coordinate>();
+            Logger logger = new Logger();
+
+            for(int i = 0; i < goals.Count; i++)
+            {
+                Coordinate box = goals[i];
+                queue.Enqueue(box);
+
+                while (queue.Count > 0)
+                {
+                    Coordinate c = queue.Dequeue();
+                    //logger.writeToLog(n, "", "");
+                    explored.Add(c);
+                    if (!visited.Contains(c)) visited.Add(c);
+                    List<string> actions = p.boxActions(c);
+                    foreach(string action in actions)
+                    {
+                        Coordinate child = getChild(p, c, action);
+                        if (child != null)
+                        {
+                            if (!explored.Contains(child) && !queue.Contains(child))
+                            {
+                                queue.Enqueue(child);
+                            }
+                        }
+                    }
+                }        
+            }
+
+            return visited;           
         }
     }
 }

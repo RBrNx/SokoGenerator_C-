@@ -2,9 +2,12 @@
 using System.IO;
 using System.Linq;
 using System.Timers;
+using System.Diagnostics;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+
+using SokoSolver;
 
 namespace SokoGen
 {
@@ -25,7 +28,7 @@ namespace SokoGen
 
         public Level(Level level)
         {
-            grid = level.grid.Select(x => x.ToList()).ToList(); //Stack Overflow said so
+            grid = level.grid.Select(x => x.ToList()).ToList(); //Stack Overflow said so (Clones instead of referencing)
             solution = level.solution;
             difficulty = level.difficulty;
             generationTime = level.generationTime;
@@ -38,10 +41,12 @@ namespace SokoGen
         BackgroundWorker worker;
         List<Level> patterns = new List<Level>();
         Random randGen;
-        System.Windows.Forms.Timer timer;
+        Stopwatch genStopwatch = new Stopwatch();
+        Stopwatch funcStopwatch = new Stopwatch();
         System.Timers.Timer timeoutClock;
         DateTime startTime;
         TimeSpan timeElapsed;
+        Solver solver = new Solver();
 
         struct coordinate
         {
@@ -72,11 +77,10 @@ namespace SokoGen
         public float timeLimit { get; set; }
         public int genSeed { get; set; }
 
-        public LevelGen(mainForm form, BackgroundWorker worker, System.Windows.Forms.Timer timer)
+        public LevelGen(mainForm form, BackgroundWorker worker)
         {
             this.form = form;
             this.worker = worker;
-            this.timer = timer;
             loadPatterns();
 
             timeoutClock = new Timer();
@@ -127,7 +131,6 @@ namespace SokoGen
 
         public List<Level> startGeneration()
         {
-            startTime = DateTime.Now;
             randGen = new Random(genSeed);
             List<Level> levelSet = new List<Level>();
 
@@ -147,6 +150,7 @@ namespace SokoGen
                 }
             }
 
+            timeoutClock.Stop();
             worker.ReportProgress(100, "Generated " + levels + " Levels");
 
             return levelSet;
@@ -157,43 +161,65 @@ namespace SokoGen
             bool generationSuccessful = false;
             Level newLevel = new Level();
             float percentage;
-            int indProcesses = 5;
+            int indProcesses = 6;
             int totalProcesses = totalLevels * (indProcesses + 1);
             int numBoxes = 0, roomH = 0, roomW = 0, diff = 0;
+            startTime = DateTime.Now;
+            genStopwatch.Start();
 
             while (!generationSuccessful)
             {
                 newLevel = new Level();
+                string solution = "";
 
                 calculateProperties(ref numBoxes, ref diff, ref roomH, ref roomW);
 
+                Console.WriteLine("Init Level " + levelNum);
                 percentage = (((levelNum * indProcesses)) * 100) / totalProcesses;
                 worker.ReportProgress((int)percentage, "Init Level " + levelNum);
                 
                 initLevel(ref newLevel, roomH, roomW);
 
+                Console.WriteLine("Placing Patterns in Level " + levelNum);
                 percentage = (((levelNum * indProcesses) + 1) * 100) / totalProcesses;
                 worker.ReportProgress((int)percentage, "Placing Patterns in Level " + levelNum);
 
-                placePatterns(ref newLevel, roomH, roomW);
+                generationSuccessful = placePatterns(ref newLevel, roomH, roomW);
 
+                Console.WriteLine("Checking Connectivity in Level " + levelNum);
                 percentage = (((levelNum * indProcesses) + 2) * 100) / totalProcesses;
                 worker.ReportProgress((int)percentage, "Checking Connectivity in Level " + levelNum);
 
-                generationSuccessful = checkConnectivity(ref newLevel, roomH, roomW, numBoxes);
+                if (generationSuccessful) generationSuccessful = checkConnectivity(ref newLevel, roomH, roomW, numBoxes);
 
+                Console.WriteLine("Placing Goals and Boxes in Level " + levelNum + " " + roomH + " " + roomW);
                 percentage = (((levelNum * indProcesses) + 3) * 100) / totalProcesses;
                 worker.ReportProgress((int)percentage, "Placing Goals and Boxes in Level " + levelNum);
 
                 if (generationSuccessful) generationSuccessful = placeGoalsAndBoxes(ref newLevel, roomH, roomW, numBoxes);
 
+                Console.WriteLine("Placing Player in Level " + levelNum);
                 percentage = (((levelNum * indProcesses) + 4) * 100) / totalProcesses;
                 worker.ReportProgress((int)percentage, "Placing Player in Level " + levelNum);
 
                 if (generationSuccessful) generationSuccessful = placePlayer(ref newLevel, roomH, roomW);
+
+                Console.WriteLine("Finding Solution for " + levelNum);
+                percentage = (((levelNum * indProcesses) + 5) * 100) / totalProcesses;
+                worker.ReportProgress((int)percentage, "Finding Solution for " + levelNum);
+                printLevel(newLevel, levelNum);
+
+                if (generationSuccessful)
+                {
+                    solver.loadLevel(newLevel);
+                    generationSuccessful = solver.solve(ref solution);
+                    newLevel.solution = solution;
+                }
             }
 
-            percentage = (((levelNum * indProcesses) + 5) * 100) / totalProcesses;
+            newLevel.generationTime = DateTime.Now - startTime;
+
+            percentage = (((levelNum * indProcesses) + 6) * 100) / totalProcesses;
             worker.ReportProgress((int)percentage, "Level " + levelNum + " Generated");
 
             return newLevel;
@@ -201,13 +227,17 @@ namespace SokoGen
 
         public void calculateProperties(ref int numBoxes, ref int diff, ref int roomH, ref int roomW)
         {
-            if (noOfBoxes == 0) { numBoxes = randomNumber(3, 6); }
-            if (roomHeight == 0) { roomH = randomNumber(3, 15, 3); }
-            if (difficulty == 0) { diff = randomNumber(1, 5); }
+            if (noOfBoxes == 0) { numBoxes = randomNumber(3, 6); } else { numBoxes = noOfBoxes; }
+            if (roomHeight == 0) { roomH = randomNumber(3, 15, 3); } else { roomH = roomHeight; }
+            if (difficulty == 0) { diff = randomNumber(1, 5); } else { diff = difficulty; }
             if (roomWidth == 0)
             {
                 if (roomH == 3) { roomW = randomNumber(6, 15, 3); }
                 else { roomW = randomNumber(3, 15, 3); }
+            }
+            else
+            {
+                roomW = roomWidth;
             }
         }
 
@@ -235,10 +265,12 @@ namespace SokoGen
             }
         }
 
-        public void placePatterns(ref Level level, int roomHeight, int roomWidth)
+        public bool placePatterns(ref Level level, int roomHeight, int roomWidth)
         {
             int patternPlacedCount = 0;
             Level tempLevel = new Level();
+            //Level tempLevel = new Level();
+            //funcStopwatch.Start();
 
             for(int y = 1; y < roomHeight; y++)
             {
@@ -249,7 +281,8 @@ namespace SokoGen
 
                         while(patternPlacedCount != 25)
                         {
-                            tempLevel = level;
+                            //if (!withinTimeLimit(funcStopwatch, 3000)) { return false; }
+                            tempLevel = new Level(level);
                             patternPlacedCount = 0;
 
                             int rand = randomNumber(0, patterns.Count - 1);
@@ -296,6 +329,8 @@ namespace SokoGen
                     }
                 }
             }
+
+            return true;
         }
 
         public Level rotatePattern(Level pattern, int rotation)
@@ -422,9 +457,11 @@ namespace SokoGen
             int goalCount = 0, boxCount = 0;
             int xCoord = 0, yCoord = 0;
             Level deadFields = new Level();
+            funcStopwatch.Start();
 
             while (!goalsPlaced)
             {
+                //if(!withinTimeLimit(funcStopwatch, 3000)){ return false; }
                 xCoord = randomNumber(1, roomWidth);
                 yCoord = randomNumber(1, roomHeight);
 
@@ -440,10 +477,13 @@ namespace SokoGen
                 }
             }
 
+            //printLevel(level, 0);
             deadFields = calcDeadFields(level);
+            //printLevel(deadFields, 0);
 
             while (!boxesPlaced)
             {
+                //if (!withinTimeLimit(funcStopwatch, 3000)) { return false; }
                 xCoord = randomNumber(1, roomWidth);
                 yCoord = randomNumber(1, roomHeight);
 
@@ -470,6 +510,7 @@ namespace SokoGen
 
             if(boxesPlaced && goalsPlaced)
             {
+                funcStopwatch.Reset();
                 return true;
             }
             else
@@ -504,21 +545,7 @@ namespace SokoGen
 
         public Level calcDeadFields(Level level)
         {
-            Level deadFields = new Level(level);
-
-            for(int y = 0; y < deadFields.grid.Count(); y++)
-            {
-                for(int x = 0; x < deadFields.grid[y].Count(); x++)
-                {
-
-                    if(deadFields.grid[y][x] == FLOOR && neighbourCount(deadFields, y, x) > 1)
-                    {
-                        deadFields.grid[y][x] = DEADFIELD;
-                    }
-
-                }
-            }
-
+            Level deadFields = solver.findStaticDeadlocks(level);
             return deadFields;
         }
 
@@ -526,9 +553,11 @@ namespace SokoGen
         {
             bool playerPlaced = false;
             int xCoord, yCoord;
+            funcStopwatch.Start();
 
             while (!playerPlaced)
             {
+                if (!withinTimeLimit(funcStopwatch, 3000)) { return false; }
                 xCoord = randomNumber(1, roomWidth);
                 yCoord = randomNumber(1, roomHeight);
 
@@ -539,6 +568,7 @@ namespace SokoGen
                 }
             }
 
+            funcStopwatch.Reset();
             return playerPlaced;
         }
 
@@ -578,6 +608,18 @@ namespace SokoGen
             Console.WriteLine("");
             Console.WriteLine("");
         }
-        
-    }
+
+        private bool withinTimeLimit(Stopwatch sw, long millisecondLimit)
+        {
+            if (sw.ElapsedMilliseconds > millisecondLimit)
+            {
+                sw.Reset();
+                return false; 
+            }
+
+            return true;
+        }
+
+    } 
+
 }
