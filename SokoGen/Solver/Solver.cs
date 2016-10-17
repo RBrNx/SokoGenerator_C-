@@ -41,9 +41,12 @@ namespace SokoSolver
 
         public void loadLevel(Level level)
         {
-            for(int y = 0; y < level.grid.Count(); y++)
+            walls = new HashSet<Coordinate>();
+            goals = new HashSet<Coordinate>();
+            boxes = new HashSet<Coordinate>();
+
+            for (int y = 0; y < level.grid.Count(); y++)
             {
-                //List<char> row = new List<char>();
                 for(int x = 0; x < level.grid[y].Count(); x++)
                 {
                     char c = level.grid[y][x];
@@ -51,16 +54,7 @@ namespace SokoSolver
                     if(c == WALL)
                     {
                         walls.Add(new Coordinate(y, x));
-                        //row.Add(c);
                     }
-                    /*else if(c == GOAL)
-                    {
-                        row.Add('.');
-                    }
-                    else
-                    {
-                        row.Add(' ');
-                    }*/
 
                     if (c == PLAYER || c == PONGOAL)
                     {
@@ -75,7 +69,6 @@ namespace SokoSolver
                         boxes.Add(new Coordinate(y, x));
                     }
                 }
-                //grid.Add(row);
             }
 
             prob = new Problem(walls, new State(boxes, player), goals);
@@ -112,10 +105,10 @@ namespace SokoSolver
             }
         }
 
-        public bool solve(ref string solution)
+        public bool solve(ref string solution, int timelimit)
         {
-            Search s = new Search(h/*, grid*/);
-            string result = s.GreedySearch(prob);
+            Search s = new Search(h);
+            string result = s.GreedySearch(prob, timelimit);
             if (result != "Failed to Solve Puzzle")
             {
                 solution = result;

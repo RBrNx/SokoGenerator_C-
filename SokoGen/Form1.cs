@@ -244,6 +244,7 @@ namespace SokoGen
         {
             int levelHeight = level.grid.Count;
             int levelWidth = level.grid[0].Count;
+            pbox_CurrLevel.Image.Dispose();
 
             Bitmap levelBMP = new Bitmap(levelWidth * 64, levelHeight * 64);
             Graphics g = Graphics.FromImage(levelBMP);

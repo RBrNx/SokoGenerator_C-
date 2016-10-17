@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using Priority_Queue;
+using System.Diagnostics;
 
 namespace SokoSolver
 {
@@ -49,13 +50,16 @@ namespace SokoSolver
             //grid = tGrid.Select(x => x.ToList()).ToList();
         }
 
-        public string GreedySearch(Problem p)
+        public string GreedySearch(Problem p, int timelimit)
         {
             int totalNode = 1;
             int redundant = 1;
             Node initial = new Node(p.initialState, null, 0, "", h);
             HashSet<State> explored = new HashSet<State>();
             SimplePriorityQueue<Node> fringe = new SimplePriorityQueue<Node>();
+            Stopwatch solveTimer = new Stopwatch();
+            solveTimer.Start();
+
             fringe.Enqueue(initial, 0);
 
             if (p.deadlockTest(initial.state))
@@ -66,6 +70,12 @@ namespace SokoSolver
             logger.writeToLog("Starting Greedy Search");
             while (fringe.Count > 0)
             {
+                if(!withinTimeLimit(solveTimer, timelimit) && timelimit != 0)
+                {
+                    solveTimer.Stop();
+                    return getSolution(null);
+                }
+
                 Node n = fringe.Dequeue();
                 if (p.goalTest(n.state))
                 {
@@ -355,5 +365,16 @@ namespace SokoSolver
 
             return visited;           
         }
-    }
+
+        private bool withinTimeLimit(Stopwatch sw, long millisecondLimit)
+        {
+            if (sw.ElapsedMilliseconds > millisecondLimit)
+            {
+                sw.Reset();
+                return false;
+            }
+
+            return true;
+        }
+    }  
 }

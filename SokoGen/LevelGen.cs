@@ -95,7 +95,7 @@ namespace SokoGen
             timeElapsed = currTime - startTime;
             if(timeLimit != 0)
             {
-                if(timeElapsed.TotalMinutes > timeLimit)
+                if(timeElapsed.TotalMilliseconds > timeLimit)
                 {
                     worker.CancelAsync();
                 }
@@ -164,6 +164,7 @@ namespace SokoGen
             int indProcesses = 6;
             int totalProcesses = totalLevels * (indProcesses + 1);
             int numBoxes = 0, roomH = 0, roomW = 0, diff = 0;
+            timeLimit = timeLimit * 60000;
             startTime = DateTime.Now;
             genStopwatch.Start();
 
@@ -198,6 +199,8 @@ namespace SokoGen
 
                 if (generationSuccessful) generationSuccessful = placeGoalsAndBoxes(ref newLevel, roomH, roomW, numBoxes);
 
+                printLevel(newLevel, 0);
+
                 Console.WriteLine("Placing Player in Level " + levelNum);
                 percentage = (((levelNum * indProcesses) + 4) * 100) / totalProcesses;
                 worker.ReportProgress((int)percentage, "Placing Player in Level " + levelNum);
@@ -212,7 +215,7 @@ namespace SokoGen
                 if (generationSuccessful)
                 {
                     solver.loadLevel(newLevel);
-                    generationSuccessful = solver.solve(ref solution);
+                    generationSuccessful = solver.solve(ref solution, (int)timeLimit);
                     newLevel.solution = solution;
                 }
             }
@@ -477,9 +480,9 @@ namespace SokoGen
                 }
             }
 
-            //printLevel(level, 0);
+            printLevel(level, 0);
             deadFields = calcDeadFields(level);
-            //printLevel(deadFields, 0);
+            printLevel(deadFields, 0);
 
             while (!boxesPlaced)
             {
@@ -561,9 +564,14 @@ namespace SokoGen
                 xCoord = randomNumber(1, roomWidth);
                 yCoord = randomNumber(1, roomHeight);
 
-                if (level.grid[yCoord][xCoord] == FLOOR || level.grid[yCoord][xCoord] == GOAL)
+                if (level.grid[yCoord][xCoord] == FLOOR)
                 {
                     level.grid[yCoord][xCoord] = PLAYER;
+                    playerPlaced = true;
+                }
+                else if (level.grid[yCoord][xCoord] == GOAL)
+                {
+                    level.grid[yCoord][xCoord] = PONGOAL;
                     playerPlaced = true;
                 }
             }
