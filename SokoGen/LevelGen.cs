@@ -6,8 +6,10 @@ using System.Diagnostics;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Runtime.InteropServices;
+using System.Text;
 
-using SokoSolver;
+using SokobanSolver;
 
 namespace SokoGen
 {
@@ -33,6 +35,21 @@ namespace SokoGen
             difficulty = level.difficulty;
             generationTime = level.generationTime;
         }
+
+        public override string ToString()
+        {
+            string ret = "";
+            for(int y = 0; y < grid.Count; y++)
+            {
+                string row = "";
+                for(int x = 0; x > grid[y].Count; x++)
+                {
+                    row += grid[y][x];
+                }
+                ret += row + "\n";
+            }
+            return ret;
+        }
     }
 
     public class LevelGen
@@ -46,7 +63,6 @@ namespace SokoGen
         System.Timers.Timer timeoutClock;
         DateTime startTime;
         TimeSpan timeElapsed;
-        Solver solver = new Solver();
 
         struct coordinate
         {
@@ -137,7 +153,7 @@ namespace SokoGen
             int levels;
             if(noOfLevels == 0) { levels = randomNumber(1, 20); } else { levels = noOfLevels; }
 
-            for (int i = 0; i < levels; i++)
+            for (int i = 1; i < levels + 1; i++)
             {
                 Level level = generateLevel(noOfBoxes, roomHeight, roomWidth, difficulty, i, levels);
                 levelSet.Add(level);
@@ -159,6 +175,7 @@ namespace SokoGen
         public Level generateLevel(int noOfBoxes, int roomHeight, int roomWidth, int difficulty, int levelNum, int totalLevels)
         {
             bool generationSuccessful = false;
+            bool cancelled = false;
             Level newLevel = new Level();
             float percentage;
             int indProcesses = 6;
@@ -167,58 +184,72 @@ namespace SokoGen
             timeLimit = timeLimit * 60000;
             startTime = DateTime.Now;
             genStopwatch.Start();
+            string level =  "#######\n" +
+                            "#     #\n" +
+                            "#     #\n" +
+                            "#. #  #\n" +
+                            "#. $$ #\n" +
+                            "#.$$  #\n" +
+                            "#.#  @#\n" +
+                            "#######";
 
-            while (!generationSuccessful)
-            {
-                newLevel = new Level();
-                string solution = "";
+            string sol = "";
 
-                calculateProperties(ref numBoxes, ref diff, ref roomH, ref roomW);
+            Solver.Solve(level, ref sol);
 
-                Console.WriteLine("Init Level " + levelNum);
-                percentage = (((levelNum * indProcesses)) * 100) / totalProcesses;
-                worker.ReportProgress((int)percentage, "Init Level " + levelNum);
-                
-                initLevel(ref newLevel, roomH, roomW);
+            while (!generationSuccessful && !cancelled)
+                {
+                    newLevel = new Level();
+                    string solution = "";
 
-                Console.WriteLine("Placing Patterns in Level " + levelNum);
-                percentage = (((levelNum * indProcesses) + 1) * 100) / totalProcesses;
-                worker.ReportProgress((int)percentage, "Placing Patterns in Level " + levelNum);
+                    calculateProperties(ref numBoxes, ref diff, ref roomH, ref roomW);
 
-                generationSuccessful = placePatterns(ref newLevel, roomH, roomW);
+                    Console.WriteLine("Init Level " + levelNum);
+                    percentage = (((levelNum * indProcesses)) * 100) / totalProcesses;
+                    worker.ReportProgress((int)percentage, "Init Level " + levelNum);
 
-                Console.WriteLine("Checking Connectivity in Level " + levelNum);
-                percentage = (((levelNum * indProcesses) + 2) * 100) / totalProcesses;
-                worker.ReportProgress((int)percentage, "Checking Connectivity in Level " + levelNum);
+                    initLevel(ref newLevel, roomH, roomW);
 
-                if (generationSuccessful) generationSuccessful = checkConnectivity(ref newLevel, roomH, roomW, numBoxes);
+                    Console.WriteLine("Placing Patterns in Level " + levelNum);
+                    percentage = (((levelNum * indProcesses) + 1) * 100) / totalProcesses;
+                    worker.ReportProgress((int)percentage, "Placing Patterns in Level " + levelNum);
 
-                Console.WriteLine("Placing Goals and Boxes in Level " + levelNum + " " + roomH + " " + roomW);
-                percentage = (((levelNum * indProcesses) + 3) * 100) / totalProcesses;
-                worker.ReportProgress((int)percentage, "Placing Goals and Boxes in Level " + levelNum);
+                    generationSuccessful = placePatterns(ref newLevel, roomH, roomW);
 
-                if (generationSuccessful) generationSuccessful = placeGoalsAndBoxes(ref newLevel, roomH, roomW, numBoxes);
+                    Console.WriteLine("Checking Connectivity in Level " + levelNum);
+                    percentage = (((levelNum * indProcesses) + 2) * 100) / totalProcesses;
+                    worker.ReportProgress((int)percentage, "Checking Connectivity in Level " + levelNum);
 
-                printLevel(newLevel, 0);
+                    if (generationSuccessful) generationSuccessful = checkConnectivity(ref newLevel, roomH, roomW, numBoxes);
 
-                Console.WriteLine("Placing Player in Level " + levelNum);
-                percentage = (((levelNum * indProcesses) + 4) * 100) / totalProcesses;
-                worker.ReportProgress((int)percentage, "Placing Player in Level " + levelNum);
+                    Console.WriteLine("Placing Goals and Boxes in Level " + levelNum + " " + roomH + " " + roomW);
+                    percentage = (((levelNum * indProcesses) + 3) * 100) / totalProcesses;
+                    worker.ReportProgress((int)percentage, "Placing Goals and Boxes in Level " + levelNum);
 
-                if (generationSuccessful) generationSuccessful = placePlayer(ref newLevel, roomH, roomW);
+                    if (generationSuccessful) generationSuccessful = placeGoalsAndBoxes(ref newLevel, roomH, roomW, numBoxes);
 
-                Console.WriteLine("Finding Solution for " + levelNum);
-                percentage = (((levelNum * indProcesses) + 5) * 100) / totalProcesses;
-                worker.ReportProgress((int)percentage, "Finding Solution for " + levelNum);
-                printLevel(newLevel, levelNum);
+                    printLevel(newLevel, 0);
+
+                    Console.WriteLine("Placing Player in Level " + levelNum);
+                    percentage = (((levelNum * indProcesses) + 4) * 100) / totalProcesses;
+                    worker.ReportProgress((int)percentage, "Placing Player in Level " + levelNum);
+
+                    if (generationSuccessful) generationSuccessful = placePlayer(ref newLevel, roomH, roomW);
+
+                    Console.WriteLine("Finding Solution for Level " + levelNum);
+                    percentage = (((levelNum * indProcesses) + 5) * 100) / totalProcesses;
+                    worker.ReportProgress((int)percentage, "Finding Solution for Level " + levelNum);
+                    printLevel(newLevel, levelNum);
 
                 if (generationSuccessful)
-                {
-                    solver.loadLevel(newLevel);
-                    generationSuccessful = solver.solve(ref solution, (int)timeLimit);
-                    newLevel.solution = solution;
+                    {
+                        //solver.loadLevel(newLevel);
+                        //generationSuccessful = solver.solve(ref solution, (int)timeLimit, ref worker);
+                        newLevel.solution = solution;
+                    }
+
+                    if (worker.CancellationPending) { cancelled = true; }
                 }
-            }
 
             newLevel.generationTime = DateTime.Now - startTime;
 
@@ -548,7 +579,8 @@ namespace SokoGen
 
         public Level calcDeadFields(Level level)
         {
-            Level deadFields = solver.findStaticDeadlocks(level);
+            Level deadFields = new Level(level);
+            //Level deadFields = solver.findStaticDeadlocks(level);
             return deadFields;
         }
 

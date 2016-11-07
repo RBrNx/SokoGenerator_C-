@@ -35,6 +35,7 @@ namespace SokoGen
         {
             Dictionary<string, float> timeLimits = new Dictionary<string, float>();
             timeLimits.Add("No Limit", 0);
+            timeLimits.Add("15 Secs", 0.25f);
             timeLimits.Add("30 Secs", 0.5f);
             timeLimits.Add("1 Min", 1);
             timeLimits.Add("2 Min", 1);
@@ -244,8 +245,7 @@ namespace SokoGen
         {
             int levelHeight = level.grid.Count;
             int levelWidth = level.grid[0].Count;
-            pbox_CurrLevel.Image.Dispose();
-
+            if (pbox_CurrLevel.Image != null) pbox_CurrLevel.Image.Dispose();
             Bitmap levelBMP = new Bitmap(levelWidth * 64, levelHeight * 64);
             Graphics g = Graphics.FromImage(levelBMP);
 
@@ -260,6 +260,7 @@ namespace SokoGen
 
             pbox_CurrLevel.Image = levelBMP;
             pbox_CurrLevel.SizeMode = PictureBoxSizeMode.Zoom;
+            g.Dispose();
         }
 
         private void ListLevels(List<Level> levelSet)

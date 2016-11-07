@@ -1,0 +1,11 @@
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokobanSolver\SokobanSolver\obj\Debug\SokobanSolver.csprojResolveAssemblyReference.cache
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokobanSolver\SokobanSolver\bin\Debug\SokobanSolver.pdb
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokobanSolver\SokobanSolver\obj\Debug\SokobanSolver.pdb
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokobanSolver\SokobanSolver\bin\Debug\SokobanSolver.dll.config
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokobanSolver\SokobanSolver\bin\Debug\SokobanSolver.dll
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokobanSolver\SokobanSolver\obj\Debug\SokobanSolver.dll
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokoGenerator_C-\SokobanSolver\bin\Debug\SokobanSolver.dll.config
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokoGenerator_C-\SokobanSolver\bin\Debug\SokobanSolver.dll
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokoGenerator_C-\SokobanSolver\bin\Debug\SokobanSolver.pdb
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokoGenerator_C-\SokobanSolver\obj\Debug\SokobanSolver.dll
+C:\Users\watsonco.REYNOLDS\Documents\Visual Studio 2015\Projects\SokoGenerator_C-\SokobanSolver\obj\Debug\SokobanSolver.pdb
