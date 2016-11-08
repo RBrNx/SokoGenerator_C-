@@ -22,6 +22,8 @@ namespace SokobanSolver
         public static void levelFromString(string lvl)
         {
             Global.level.grid = new List<List<char>>();
+            Global.level.px = 0;
+            Global.level.py = 0;
 
             foreach (string row in lvl.Split('\n'))
             {
@@ -43,6 +45,25 @@ namespace SokobanSolver
                     if (Global.level.grid[i][j] == Global.PLAYER || Global.level.grid[i][j] == Global.PONGOAL)
                     {
                         Global.level.px = j; Global.level.py = i;
+                    }
+                }
+            }
+
+            //Set Player Pos to First Blank space if it doesn't already exist
+            if(Global.level.px == 0 && Global.level.py== 0)
+            {
+                for(int y = 0; y < Global.level.height; y++)
+                {
+                    for(int x = 0; x < Global.level.width; x++)
+                    {
+                        if (Global.level.grid[y][x] == ' ')
+                        {
+                            Global.level.px = x;
+                            Global.level.py = y;
+
+                            y = int.MaxValue - 1;
+                            break;
+                        }
                     }
                 }
             }

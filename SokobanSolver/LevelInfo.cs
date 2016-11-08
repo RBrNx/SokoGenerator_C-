@@ -49,6 +49,17 @@ namespace SokobanSolver
             calculateTunnels();
         }
 
+        public static void preprocessDeadfields()
+        {
+            addOutsideWalls();
+            removeDeadends();
+            countBoxesAndGoals();
+            calculateMagicNumbers();
+            setFieldNumbers();
+            calculateDistances();
+            setDeadFieldsAndGoalDistances();
+        }
+
         public static uint magicForSokoban(int x, int y)
         {
             uint magic = Global.tempInfo.magic[y, x];

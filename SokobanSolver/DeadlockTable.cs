@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SokobanSolver
 {
-    public static class DeadlockTable
+    public class DeadlockTable
     {
-        public static Position newDeadlock = new Position(Global.POSITIONSIZE);
+        public Position newDeadlock = new Position(Global.POSITIONSIZE);
 
-        public static void calculateStaticDeadlocks()
+        public void calculateStaticDeadlocks()
         {
             initializeStaticDeadlocks();
             addStaticDeadlocks();
             //echoDeadPositions();
         }
 
-        public static bool testStaticDeadlocks(Position pos, int fn)
+        public bool testStaticDeadlocks(Position pos, int fn)
         {
             for(int i = 0; i < Global.staticDeadlocksCount[fn]; i++)
             {
@@ -30,7 +30,7 @@ namespace SokobanSolver
             return false;
         }
 
-        public static void initializeStaticDeadlocks()
+        public void initializeStaticDeadlocks()
         {
             for(int i = 0; i < Global.MAXSTATICDEADLOCKS; i++)
             {
@@ -38,7 +38,7 @@ namespace SokobanSolver
             }
         }
 
-        public static void addStaticDeadlocks()
+        public void addStaticDeadlocks()
         {
             if(Global.levelInfo.numBoxes >= 2)
             {
@@ -72,7 +72,7 @@ namespace SokobanSolver
             }
         }
 
-        public static void forbiddenPatternWithSymmetries(int w, int h, string pattern)
+        public void forbiddenPatternWithSymmetries(int w, int h, string pattern)
         {
             char[] charPattern = pattern.ToCharArray();
             char[] newPattern = new char[64];
@@ -97,7 +97,7 @@ namespace SokobanSolver
             forbiddenPattern(h, w, newPattern2);
         }
 
-        public static void mirrorV(int w, int h, char[] pattern, ref char[] result)
+        public void mirrorV(int w, int h, char[] pattern, ref char[] result)
         {
             for(int y = 0; y < h; y++)
             {
@@ -109,7 +109,7 @@ namespace SokobanSolver
             result[w * h] = '\0';
         }
 
-        public static void mirrorH(int w, int h, char[] pattern, ref char[] result)
+        public void mirrorH(int w, int h, char[] pattern, ref char[] result)
         {
             for (int y = 0; y < h; y++)
             {
@@ -121,7 +121,7 @@ namespace SokobanSolver
             result[w * h] = '\0';
         }
 
-        public static void transpose(int w, int h, char[] pattern, ref char[] result)
+        public void transpose(int w, int h, char[] pattern, ref char[] result)
         {
             for (int y = 0; y < w; y++)
             {
@@ -133,7 +133,7 @@ namespace SokobanSolver
             result[w * h] = '\0';
         }
 
-        public static void forbiddenPattern(int w, int h, char[] pattern)
+        public void forbiddenPattern(int w, int h, char[] pattern)
         {
             for(int y = 0; y <= Global.level.height - h; y++)
             {
@@ -226,7 +226,7 @@ namespace SokobanSolver
             }
         }
 
-        public static void echoDeadPositions()
+        public void echoDeadPositions()
         {
             Position original = new Position(Global.POSITIONSIZE);
             Position.getPosition(ref original);

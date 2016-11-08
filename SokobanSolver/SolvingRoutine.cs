@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SokobanSolver
 {
@@ -11,6 +8,7 @@ namespace SokobanSolver
         public static Move newMove;
         public static Move mov;
         public static int posnum = 0;
+        public static Stopwatch stopwatch = new Stopwatch();
 
         public static void trySolveLevel()
         {
@@ -21,8 +19,8 @@ namespace SokobanSolver
 
         public static void initializeRoutine()
         {
-            Hashtable.initializeHash();
-            CRS.initializeCRS();
+            Global.hashTable.initializeHash();
+            Global.crs.initializeCRS();
             Position.getPosition(ref Global.root.pos);
 
             Global.root.magic = 0;
@@ -49,22 +47,25 @@ namespace SokobanSolver
             }
             Global.currentDistance = (int)Global.root.heuristic;
             Global.moveQueue[Global.currentDistance].next = Queue.createQueueNode(Global.root);
-            Hashtable.addToHashtable(Global.root);
+            Global.hashTable.addToHashtable(Global.root);
         }
 
         public static void cleanRoutine()
         {
-            Hashtable.cleanHash();
+            Global.hashTable.cleanHash();
         }
 
         public static void runRoutine()
         {
-            newMove = Allocator.mallocMove();
+            newMove = Global.allocator.mallocMove();
+            stopwatch.Start();
             for( ; Global.currentDistance < Global.MAXDISTANCE; Global.currentDistance++)
             {
                 while (!Queue.isQueueEmpty(Global.moveQueue[Global.currentDistance]))
                 {
-                    if(Hashtable.count > Global.HASHMAX)
+                    if(!withinTimeLimit(stopwatch, 15000)) { Global.solvable = false; Console.WriteLine("Timed Out");  return; }
+
+                    if(Global.hashTable.count > Global.HASHMAX)
                     {
                         Global.solvable = false;
                         //Console.WriteLine("Hash Too Full");
@@ -81,7 +82,7 @@ namespace SokobanSolver
                         Level.printLevel(Global.level);
                     }*/
 
-                    CRS.calculatePosition();
+                    Global.crs.calculatePosition();
 
                     //echoAreas();
                     //Level.printLevel(Global.level);
@@ -155,13 +156,13 @@ namespace SokobanSolver
             newMove.magic = mov.magic ^ (int)Global.levelInfo.magic[y, x] ^ (int)Global.levelInfo.magic[yto, xto] ^ (int)LevelInfo.magicForSokoban(Global.level.px, Global.level.py)
                                         ^ (int)LevelInfo.magicForSokoban(x, y);
 
-            if(!DeadlockTable.testStaticDeadlocks(newMove.pos, to) && Hashtable.addToHashtable(newMove))
+            if(!Global.deadlockTable.testStaticDeadlocks(newMove.pos, to) && Global.hashTable.addToHashtable(newMove))
             {
                 //echoMove(mov, newMove);
                 newMove.parent = mov;
                 newMove.heuristic = mov.heuristic + (uint)pd - (uint)Global.levelInfo.goalDists[from] + (uint)Global.levelInfo.goalDists[to] + (uint)(Global.HIBYTES * pd);
                 Queue.appendQueueNode(Queue.createQueueNode(newMove), Global.moveQueue[newMove.heuristic % Global.HIBYTES]);
-                newMove = Allocator.mallocMove();
+                newMove = Global.allocator.mallocMove();
             }
 
         }
@@ -250,6 +251,17 @@ namespace SokobanSolver
                 Console.WriteLine("");
             }
             Console.WriteLine("");
+        }
+
+        public static bool withinTimeLimit(Stopwatch sw, long millisecondLimit)
+        {
+            if (sw.ElapsedMilliseconds > millisecondLimit)
+            {
+                sw.Reset();
+                return false;
+            }
+
+            return true;
         }
     }
 }

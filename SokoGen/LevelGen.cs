@@ -42,11 +42,12 @@ namespace SokoGen
             for(int y = 0; y < grid.Count; y++)
             {
                 string row = "";
-                for(int x = 0; x > grid[y].Count; x++)
+                for(int x = 0; x < grid[y].Count; x++)
                 {
                     row += grid[y][x];
                 }
-                ret += row + "\n";
+                ret += row;
+                if (y < grid.Count - 1) { ret += '\n'; }
             }
             return ret;
         }
@@ -184,18 +185,6 @@ namespace SokoGen
             timeLimit = timeLimit * 60000;
             startTime = DateTime.Now;
             genStopwatch.Start();
-            string level =  "#######\n" +
-                            "#     #\n" +
-                            "#     #\n" +
-                            "#. #  #\n" +
-                            "#. $$ #\n" +
-                            "#.$$  #\n" +
-                            "#.#  @#\n" +
-                            "#######";
-
-            string sol = "";
-
-            Solver.Solve(level, ref sol);
 
             while (!generationSuccessful && !cancelled)
                 {
@@ -228,7 +217,7 @@ namespace SokoGen
 
                     if (generationSuccessful) generationSuccessful = placeGoalsAndBoxes(ref newLevel, roomH, roomW, numBoxes);
 
-                    printLevel(newLevel, 0);
+                    printLevel(newLevel, levelNum);
 
                     Console.WriteLine("Placing Player in Level " + levelNum);
                     percentage = (((levelNum * indProcesses) + 4) * 100) / totalProcesses;
@@ -239,11 +228,11 @@ namespace SokoGen
                     Console.WriteLine("Finding Solution for Level " + levelNum);
                     percentage = (((levelNum * indProcesses) + 5) * 100) / totalProcesses;
                     worker.ReportProgress((int)percentage, "Finding Solution for Level " + levelNum);
-                    printLevel(newLevel, levelNum);
+                    //printLevel(newLevel, levelNum);
 
-                if (generationSuccessful)
+                    if (generationSuccessful)
                     {
-                        //solver.loadLevel(newLevel);
+                        generationSuccessful = Solver.Solve(newLevel.ToString(), ref solution);
                         //generationSuccessful = solver.solve(ref solution, (int)timeLimit, ref worker);
                         newLevel.solution = solution;
                     }
@@ -404,8 +393,6 @@ namespace SokoGen
         {
             List<List<int>> tempGrid = new List<List<int>>();
             bool floorFound = false;
-            int wallCount = 0;
-            int floorCount = 0;
 
             for(int column = 0; column < roomHeight + 2; column++)
             {
@@ -435,28 +422,6 @@ namespace SokoGen
                         floodFill(ref tempGrid, column, row, roomWidth + 2, roomHeight + 2);
                     }
                 }
-            }
-
-            for(int column = 0; column < roomHeight + 2; column++)
-            {
-                for(int row = 0; row < roomWidth + 2; row++)
-                {
-                    if (tempGrid[column][row] == 0) { return false; }
-                    else if (tempGrid[column][row] == 1)
-                    {
-                        wallCount++;
-                    }
-                    else if (tempGrid[column][row] == 2)
-                    {
-                        floorCount++;
-                    }
-
-                    if(wallCount == tempGrid.Count * tempGrid[column].Count()){ return false; }
-                }
-            }
-            if(floorCount <= numBoxes + numBoxes + 1 + 5)
-            {
-                return false;
             }
 
             return true;
@@ -490,8 +455,11 @@ namespace SokoGen
             bool goalsPlaced = false, boxesPlaced = false;
             int goalCount = 0, boxCount = 0;
             int xCoord = 0, yCoord = 0;
+            int wallCount = 0, floorCount = 0;
             Level deadFields = new Level();
             funcStopwatch.Start();
+
+            //printLevel(level, 0);
 
             while (!goalsPlaced)
             {
@@ -511,9 +479,28 @@ namespace SokoGen
                 }
             }
 
-            printLevel(level, 0);
+            //printLevel(level, 0);
             deadFields = calcDeadFields(level);
-            printLevel(deadFields, 0);
+            //printLevel(deadFields, 0);
+
+            for (int column = 0; column < roomHeight; column++)
+            {
+                for (int row = 0; row < roomWidth; row++)
+                {
+                    if (deadFields.grid[column][row] == WALL)
+                    {
+                        wallCount++;
+                    }
+                    else if (deadFields.grid[column][row] == FLOOR)
+                    {
+                        floorCount++;
+                    }
+                }
+            }
+            if (floorCount <= numBoxes + numBoxes + 1 + 5) //If free floor space is less than Num Boxes + Num Goals + Player + Extra Tiles
+            {
+                return false;
+            }
 
             while (!boxesPlaced)
             {
@@ -580,7 +567,8 @@ namespace SokoGen
         public Level calcDeadFields(Level level)
         {
             Level deadFields = new Level(level);
-            //Level deadFields = solver.findStaticDeadlocks(level);
+            //Console.Write(deadFields.ToString());
+            deadFields.grid = Solver.findDeadfields(deadFields.ToString()).Select(x => x.ToList()).ToList();
             return deadFields;
         }
 

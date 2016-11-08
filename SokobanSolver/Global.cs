@@ -35,6 +35,10 @@ namespace SokobanSolver
         public static LevelInfo tempInfo = new LevelInfo(LVLSIZE, MAXFIELDS);
         public static Solution levelSol = new Solution(MAXSOLUTION);
         public static Random random = new Random();
+        public static Allocator allocator = new Allocator();
+        public static DeadlockTable deadlockTable = new DeadlockTable();
+        public static Hashtable hashTable = new Hashtable();
+        public static CRS crs = new CRS();
         public static Move root = new Move();
 
         public static Position[,] staticDeadlocks = new Position[MAXFIELDS, MAXSTATICDEADLOCKS];
@@ -59,5 +63,36 @@ namespace SokobanSolver
         //public static Queue[] moveQueue = new Queue[MAXDISTANCE];
         public static Queue[] moveQueue = Enumerable.Range(0, MAXDISTANCE).Select(i => new Queue()).ToArray();
         public static int currentDistance;
+
+        public static void cleanGlobal()
+        {
+            level = new Level();
+            levelInfo = new LevelInfo(LVLSIZE, MAXFIELDS);
+            tempInfo = new LevelInfo(LVLSIZE, MAXFIELDS);
+            levelSol = new Solution(MAXSOLUTION);
+            random = new Random();
+            root = new Move();
+
+            staticDeadlocks = new Position[MAXFIELDS, MAXSTATICDEADLOCKS];
+            staticDeadlocksCount = new int[MAXSTATICDEADLOCKS];
+
+            searchQueue = new int[LVLSIZE * LVLSIZE];
+            searchQueueX = new int[MAXFIELDS];
+            searchQueueY = new int[MAXFIELDS];
+
+            reachable = new int[LVLSIZE, LVLSIZE];
+            boxx = new int[MAXFIELDS];
+            boxy = new int[MAXFIELDS];
+            boxCount = 0;
+
+            solvable = true;
+
+            art = new int[MAXFIELDS];
+
+            movesX = new int[] { -1, 0, 1, 0, -1, 0, 1, 0 };
+            movesY = new int[] { 0, 1, 0, -1, 0, 1, 0, -1 };
+
+            moveQueue = Enumerable.Range(0, MAXDISTANCE).Select(i => new Queue()).ToArray();
+        }
     }
 }

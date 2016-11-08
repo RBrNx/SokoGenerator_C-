@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace SokobanSolver
 {
-    public static class Allocator
+    public class Allocator
     {
-        public static Move[] allocMoves = null;
-        public static int lastMove = Global.MOVECHUNK;
-        public static Move freedMoves = null;
+        public Move[] allocMoves = null;
+        public int lastMove = Global.MOVECHUNK;
+        public Move freedMoves = null;
 
-        public static Queue[] allocNodes = null;
-        public static int lastNode = Global.QUEUECHUNK;
-        public static Queue freedNodes = null;
+        public Queue[] allocNodes = null;
+        public int lastNode = Global.QUEUECHUNK;
+        public Queue freedNodes = null;
 
-        public static void initializeAllocator()
+        public void initializeAllocator()
         {
             freedMoves.parent = null;
             freedNodes.next = null;
         }
 
-        public static Queue mallocNode()
+        public Queue mallocNode()
         {
             if(lastNode < Global.QUEUECHUNK)
             {
@@ -37,7 +37,7 @@ namespace SokobanSolver
             }
         }
 
-        public static Move mallocMove()
+        public Move mallocMove()
         {
             if(lastMove < Global.MOVECHUNK)
             {

@@ -19,7 +19,7 @@ namespace SokobanSolver
 
         public static Queue createQueueNode(Move element)
         {
-            Queue tmp = Allocator.mallocNode();
+            Queue tmp = Global.allocator.mallocNode();
             tmp.e = element;
             return tmp;
         }

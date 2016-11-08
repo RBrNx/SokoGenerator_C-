@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace SokobanSolver
 {
-    public static class CRS
+    public class CRS
     {
-        public static int corralCount;
-        public static int[] unfinishedGoal = new int[Global.MAXFIELDS];
-        public static int[] isPiCorral = new int[Global.MAXFIELDS];
-        public static int[] corralSize = new int[Global.MAXFIELDS];
-        public static int[,] reachableStart = new int[Global.LVLSIZE, Global.LVLSIZE];
+        public int corralCount;
+        public int[] unfinishedGoal = new int[Global.MAXFIELDS];
+        public int[] isPiCorral = new int[Global.MAXFIELDS];
+        public int[] corralSize = new int[Global.MAXFIELDS];
+        public int[,] reachableStart = new int[Global.LVLSIZE, Global.LVLSIZE];
 
-        public static void initializeCRS()
+        public void initializeCRS()
         {
             for(int y = 0; y < Global.level.height; y++)
             {
@@ -36,7 +36,7 @@ namespace SokobanSolver
             }
         }
 
-        public static void calculatePosition()
+        public void calculatePosition()
         {
             calculateReachableSqaures();
             findCorrals();
@@ -47,7 +47,7 @@ namespace SokobanSolver
             }
         }
 
-        public static void calculateReachableSqaures()
+        public void calculateReachableSqaures()
         {
             for(int y = 0; y < Global.level.height; y++)
             {
@@ -92,7 +92,7 @@ namespace SokobanSolver
             }
         }
 
-        public static void findCorrals()
+        public void findCorrals()
         {
             corralCount = 2;
             for(int b = 0; b < Global.boxCount; b++)
@@ -111,7 +111,7 @@ namespace SokobanSolver
             }
         }
 
-        public static void runCorralBFS(int x, int y, int value)
+        public void runCorralBFS(int x, int y, int value)
         {
             unfinishedGoal[value] = 0;
             corralSize[value] = 1;
@@ -145,7 +145,7 @@ namespace SokobanSolver
             }
         }
 
-        public static int piCorralsCheck()
+        public int piCorralsCheck()
         {
             for(int i = 2; i < corralCount; i++)
             {
@@ -182,7 +182,7 @@ namespace SokobanSolver
             return min;
         }
 
-        public static void prunePositionByPiCorral(int corralNum)
+        public void prunePositionByPiCorral(int corralNum)
         {
             //Console.WriteLine("Pruning by PiCorral " + corralNum);
             int last = 0;
@@ -200,7 +200,7 @@ namespace SokobanSolver
             Global.boxCount = corralSize[corralNum];
         }
 
-        public static void calculateAreas()
+        public void calculateAreas()
         {
             for(int y = 0; y < Global.level.height; y++)
             {
@@ -224,7 +224,7 @@ namespace SokobanSolver
             }
         }
 
-        public static void runReachableBFS(int x, int y, int value)
+        public void runReachableBFS(int x, int y, int value)
         {
             int first = 0; int last = 1;
             Global.searchQueueX[0] = x;

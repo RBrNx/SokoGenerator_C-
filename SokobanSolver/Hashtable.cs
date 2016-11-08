@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SokobanSolver
 {
-    static class Hashtable
+    public class Hashtable
     {
-        public static Move[] data = new Move[Global.HASHSIZE];
-        public static int count;
+        public Move[] data = new Move[Global.HASHSIZE];
+        public int count;
 
-        public static void initializeHash()
+        public void initializeHash()
         {
             count = 0;
-            data = new Move[Global.HASHSIZE];
+            data.Initialize();
         }
 
-        public static void cleanHash()
+        public void cleanHash()
         {
             for(int i = 0; i < Global.HASHSIZE; i++)
             {
@@ -28,7 +28,7 @@ namespace SokobanSolver
             }
         }
 
-        public static bool addToHashtable(Move move)
+        public bool addToHashtable(Move move)
         {
             uint pos = (uint)move.magic;
             while(data[pos % Global.HASHSIZE] != null)

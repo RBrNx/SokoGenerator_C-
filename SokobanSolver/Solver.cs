@@ -10,8 +10,8 @@ namespace SokobanSolver
     {
 
         public static bool Solve(string level, ref string solution)
-        { 
-
+        {
+            Global.cleanGlobal();
             Level.levelFromString(level);
 
             SolFunc.initArrays();
@@ -19,7 +19,7 @@ namespace SokobanSolver
             Global.solvable = true;
             Global.levelSol.length = 0;
             LevelInfo.preprocessLevel();
-            DeadlockTable.calculateStaticDeadlocks();
+            Global.deadlockTable.calculateStaticDeadlocks();
             //Level.printLevel(Global.level);
 
             SolvingRoutine.trySolveLevel();
@@ -30,13 +30,20 @@ namespace SokobanSolver
                     Global.solvable = false;
                     return false;
                 }
-                for(int i = 0; i < Global.levelSol.length; i++)
-                {
-                    solution += Global.levelSol.move[i];
-                }
+                solution = new string(Global.levelSol.move, 0, Global.levelSol.length);
                 return true;
             }
             return false;
+        }
+
+        public static List<List<char>> findDeadfields(string level)
+        {
+            Global.cleanGlobal();
+            Level.levelFromString(level);
+            SolFunc.initArrays();
+            LevelInfo.preprocessDeadfields();
+            Level.printLevel(Global.level);
+            return Global.level.grid;
         }
 
     }
